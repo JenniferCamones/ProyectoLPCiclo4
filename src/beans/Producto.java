@@ -1,4 +1,4 @@
-package entidad;
+package beans;
 
 public class Producto {
 	private int idProducto;
