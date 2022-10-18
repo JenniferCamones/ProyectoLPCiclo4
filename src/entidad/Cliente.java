@@ -1,7 +1,7 @@
 package entidad;
 
 public class Cliente {
-
+//1
 	private int idCliente;
 	private String nombre; 
 	private String direccion;
