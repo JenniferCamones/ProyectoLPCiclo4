@@ -7,6 +7,7 @@ public class Cliente {
 	private String direccion;
 	private String dni;			 
 	private String telefono;
+	//5
 	
 	public Cliente() {
 		
