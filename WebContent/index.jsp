@@ -17,10 +17,9 @@
     if(x!=null)
     	a=x;
    %> -->
-	<div class="container-sm"
-		style="height: 500px; width: 700px; padding: 20px 50px 20px 50px; margin-top: 60px; background-color: white; border-radius: 10px">
+	<div class="container-sm">
 		<br>
-		<h1 class="font-weight-bold mb-4 text-center btn-primary"
+		<h1 class="font-weight-bold mb-4 text-center"
 			style="padding: 10px 5px 10px 5px; border-radius: 10px">¡
 			Bienvenido !</h1>
 		<div class="Formulario">
