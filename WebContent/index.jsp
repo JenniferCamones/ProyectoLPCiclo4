@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<body style="background-color: lightgray">
+<body>
    <!-- <%
     String x =(String) request.getAttribute("msj");
     String a="";
