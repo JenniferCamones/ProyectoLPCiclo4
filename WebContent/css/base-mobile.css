@@ -1,0 +1,57 @@
+
+@media (max-width:768px) {
+    
+    .header__encabezado{
+        display: none;
+    }
+
+    .header__barra{
+        flex-direction: column;
+    }
+
+    .header__logo--img{
+        width: 15rem;
+
+    }
+
+    .header__derecho{
+        flex-direction: column;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .header__login{
+        flex-direction: column;
+        text-align: center;
+    }
+
+      .header__login--opcion.boton{
+        margin-bottom: 2rem;
+      }
+
+
+      .navegacion{
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0;
+      }
+      .navegacion__enlace--mantenimiento{
+        margin: 0 auto;
+      }
+
+
+      /*FOOTER*/
+
+     
+      .footer__enlaces{
+        flex-direction: column;
+
+
+      }
+      .footer__navegacion{
+        flex-direction: column;
+       text-align: center;
+        margin-bottom: -5rem;
+      }
+
+}
