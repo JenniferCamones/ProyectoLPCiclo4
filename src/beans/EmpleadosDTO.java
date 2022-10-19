@@ -1,6 +1,6 @@
 package beans;
 
-public class Empleados {
+public class EmpleadosDTO {
 
 	private int idEmpleado;  
 	private String nombre; 
@@ -13,11 +13,11 @@ public class Empleados {
 	private String clave;
 	
 	
-	public Empleados() {
+	public EmpleadosDTO() {
 		
 	}
 	
-	public Empleados(int idEmpleado, String nombre, String apellidos, String telefono, String direccion, String correo,
+	public EmpleadosDTO(int idEmpleado, String nombre, String apellidos, String telefono, String direccion, String correo,
 			int idTipoEmpleado, String usuario, String clave) {		
 		this.idEmpleado = idEmpleado;
 		this.nombre = nombre;

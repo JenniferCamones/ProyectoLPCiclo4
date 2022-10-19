@@ -1,6 +1,6 @@
 package beans;
 
-public class Proveedor {
+public class ProveedorDTO {
 
 	private int idProveedor;
 	private String nombre;
@@ -11,11 +11,11 @@ public class Proveedor {
 	private String fechaModifica;
 	private int empleadoModifica;
 		
-	public Proveedor() {
+	public ProveedorDTO() {
 		
 	}
 		
-	public Proveedor(int idProveedor, String nombre, String direccion, String correo, String fechaRegistro,
+	public ProveedorDTO(int idProveedor, String nombre, String direccion, String correo, String fechaRegistro,
 			int empleadoRegistro, String fechaModifica, int empleadoModifica) {	
 		this.idProveedor = idProveedor;
 		this.nombre = nombre;

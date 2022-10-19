@@ -1,6 +1,6 @@
 package beans;
 
-public class Pedido {
+public class PedidoDTO {
 	private int idPedido; 
 	private String numeroPedido;  
 	private String nombre;
@@ -10,11 +10,11 @@ public class Pedido {
 	private String estado;
 	
 	
-	public Pedido() {
+	public PedidoDTO() {
 		
 	}
 	
-	public Pedido(int idPedido, String numeroPedido, String nombre, String fecha, int idCliente, int idEmpleado,
+	public PedidoDTO(int idPedido, String numeroPedido, String nombre, String fecha, int idCliente, int idEmpleado,
 			String estado) {		
 		this.idPedido = idPedido;
 		this.numeroPedido = numeroPedido;

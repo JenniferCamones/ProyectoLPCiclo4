@@ -9,7 +9,7 @@ public class MySqlDBConexion {
 		Connection cn = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			cn = DriverManager.getConnection("jdbc:mysql://localhost/BD_Delivery", "root", "mysql");
+			cn = DriverManager.getConnection("jdbc:mysql://localhost/BD_Delivery", "root", "Papacholo2003@");
 		}
 		catch (Exception e) {
 			e.printStackTrace();
