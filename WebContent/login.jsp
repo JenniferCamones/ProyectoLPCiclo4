@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="css/normalize.css">
 </head>
 <body>
-    
+    <%
+    String x =(String) request.getAttribute("msj");
+    String a="";
+    if(x!=null)
+    	a=x;
+   %>
     <div class="form-container">
 
 
-        <form class="formulario" action="">
+        <form class="formulario" action="ServletUsuario" name="frmsesion" method="post">
 
             <div class="logo">
                 <img src="img/delibery-logo-sinfondo.png" alt="">
@@ -23,15 +28,15 @@
 
             <div class="campo">
 
-                <label for="correo">Correo:</label>
-                <input type="text" name="correo" id="correo" placeholder="Ingresa tu correo">
+                <label for="correo">Usuario:</label>
+                <input type="text" name="txtUsuario" id="correo" placeholder="Ingresa tu usuario">
 
             </div>
 
                 <div class="campo">
 
                 <label for="password">Contraseña:</label>
-                <input type="password" name="password" id="password" placeholder="Ingresa Contraseña">
+                <input type="password" name="txtClave" id="password" placeholder="Ingresa Contraseña">
 
             </div>
 
@@ -56,6 +61,7 @@
 
             <a href="#">Recuperar Contraseña</a>
             <a href="#">Registrarse</a>
+            <h5 align="center"><%=a%></h5>
 
         </form>
 

@@ -10,4 +10,13 @@ public class MySqlDAOFactory extends DAOFactory {
 		return null;
 	}
 
+	//PARA USUARIOS
+	@Override
+	public MySqlUsuariosDAO getUsuarios() {
+		
+		return new MySqlUsuariosDAO();
+	}
+	
+	
+
 }

@@ -26,4 +26,19 @@ public abstract class DAOFactory {
 		return null;
 	}
 	
+	//INTERFACE usuarios
+public abstract MySqlUsuariosDAO getUsuarios();
+	
+	public static DAOFactory getDAOFactory1(int whichFactory) {
+		switch(whichFactory) {
+			case MYSQL:
+				return new MySqlDAOFactory();
+			case ORACLE:
+				//return new OracleDAOFactory();
+			case SQLSERVER:
+				//return new SQL ServerDAOFactory();
+		}
+		return null;
+	}
+	
 }
