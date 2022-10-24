@@ -11,6 +11,8 @@ public class EmpleadosDTO {
 	private int idTipoEmpleado;
 	private String usuario;
 	private String clave;
+	private boolean estado;
+	
 	
 	
 	public EmpleadosDTO() {
@@ -83,6 +85,14 @@ public class EmpleadosDTO {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
 	
 	
 }

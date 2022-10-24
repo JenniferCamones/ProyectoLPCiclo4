@@ -1,6 +1,7 @@
 package dao;
 
 import interfaces.ProductoDAO;
+import interfaces.EmpleadoDAO;
 
 public class MySqlDAOFactory extends DAOFactory {
 
@@ -9,6 +10,12 @@ public class MySqlDAOFactory extends DAOFactory {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public EmpleadoDAO getEmpleado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 	//PARA USUARIOS
 	@Override
