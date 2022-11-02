@@ -7,24 +7,24 @@ public class ProveedorDTO {
 	private String direccion;
 	private String correo;
 	private String fechaRegistro;
-	private int empleadoRegistro;
+	private int usuarioRegistro;
 	private String fechaModifica;
-	private int empleadoModifica;
+	private int usuarioModifica;
 		
 	public ProveedorDTO() {
 		
 	}
 		
 	public ProveedorDTO(int idProveedor, String nombre, String direccion, String correo, String fechaRegistro,
-			int empleadoRegistro, String fechaModifica, int empleadoModifica) {	
+			int usuarioRegistro, String fechaModifica, int usuarioModifica) {	
 		this.idProveedor = idProveedor;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.correo = correo;
 		this.fechaRegistro = fechaRegistro;
-		this.empleadoRegistro = empleadoRegistro;
+		this.usuarioRegistro = usuarioRegistro;
 		this.fechaModifica = fechaModifica;
-		this.empleadoModifica = empleadoModifica;
+		this.usuarioModifica = usuarioModifica;
 	}
 	
 	public int getIdProveedor() {
@@ -57,11 +57,11 @@ public class ProveedorDTO {
 	public void setFechaRegistro(String fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
-	public int getEmpleadoRegistro() {
-		return empleadoRegistro;
+	public int getUsuarioRegistro() {
+		return usuarioRegistro;
 	}
-	public void setEmpleadoRegistro(int empleadoRegistro) {
-		this.empleadoRegistro = empleadoRegistro;
+	public void setUsuarioRegistro(int empleadoRegistro) {
+		this.usuarioRegistro = empleadoRegistro;
 	}
 	public String getFechaModifica() {
 		return fechaModifica;
@@ -69,11 +69,11 @@ public class ProveedorDTO {
 	public void setFechaModifica(String fechaModifica) {
 		this.fechaModifica = fechaModifica;
 	}
-	public int getEmpleadoModifica() {
-		return empleadoModifica;
+	public int getUsuarioModifica() {
+		return usuarioModifica;
 	}
-	public void setEmpleadoModifica(int empleadoModifica) {
-		this.empleadoModifica = empleadoModifica;
+	public void setUsuarioModifica(int empleadoModifica) {
+		this.usuarioModifica = empleadoModifica;
 	}
 	
 	
