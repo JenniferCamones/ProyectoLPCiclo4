@@ -1,7 +1,7 @@
 package beans;
 
 public class ProductoDTO {
-	private int idProducto;
+	private int idProducto, idCategoriaPro;
 	private String nombre;
 	private int stockActual;
 	private double precioActual;
@@ -73,6 +73,14 @@ public class ProductoDTO {
 	}
 	public void setEmpleadoModifica(int empleadoModifica) {
 		this.empleadoModifica = empleadoModifica;
+	}
+
+	public int getIdCategoriaPro() {
+		return idCategoriaPro;
+	}
+
+	public void setIdCategoriaPro(int idCategoriaPro) {
+		this.idCategoriaPro = idCategoriaPro;
 	} 
 	
 
