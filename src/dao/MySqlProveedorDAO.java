@@ -68,6 +68,49 @@ public class MySqlProveedorDAO {
 		}
 		return rs;		
 	}
+	public boolean actualizarProveedor(ProveedorDTO p) {
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		Boolean rs = false;
+				
+		try {
+			cn = MySqlDBConexion.getConexion();
+			String sql ="UPDATE Proveedor SET nombre=?, direccion=?,correo=?,direccion=?,correo=?,fechaRegistro=?,usuarioRegistro=? where idProveedor =?; ";  					
+			pstm = cn.prepareStatement(sql);
+			pstm.setString(0, p.getNombre());
+			pstm.setString(1, p.getDireccion());
+			pstm.setString(2, p.getCorreo());
+			pstm.setString(3, p.getFechaRegistro());
+			pstm.setInt(4, p.getUsuarioRegistro());
+			pstm.setString(5, p.getFechaModifica());
+			
+			
+            pstm.executeUpdate();
+				rs=true;								
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return rs;		
+	
+	}
+	public boolean eliminarProveedor(int idProveedor) {
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		Boolean rs = false;
+		
+		try {
+			cn = MySqlDBConexion.getConexion();
+			String sql ="delete from Proveedor where idProveedor = ? ";
+			pstm = cn.prepareStatement(sql);
+			pstm.setInt(0,idProveedor);
+			pstm.executeUpdate();
+			rs=true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return rs;
+	}
 	
 	
 }
