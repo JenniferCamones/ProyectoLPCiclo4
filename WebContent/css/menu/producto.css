@@ -1,0 +1,146 @@
+
+
+.__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:  4rem;
+    
+}
+
+.producto__formulario{
+display: flex;
+flex-direction: column;
+}
+
+.producto__label{
+font-size: 2.2rem;
+margin-right: 1rem;
+}
+
+.producto__cantidad{
+  border: 2px solid orange;
+  padding: 1rem;
+text-align: center;
+ 
+}
+.producto__cantidad:focus-visible{
+   outline: 2px solid orange;
+}
+
+
+.producto__agregar-carrito{
+  margin-top: 6rem;
+  display: block;
+  background-color: orange;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  text-align: center;
+  padding: 2rem 5rem;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: .3s all ease-in-out;
+}
+.producto__agregar-carrito:hover{
+  background-color: black;
+  cursor: pointer;
+}
+
+
+
+.producto {
+  display: grid;
+  grid-template-columns: repeat(2 ,1fr);
+  grid-template-rows: repeat(1,1fr);
+  
+  column-gap: 3rem;
+  
+  align-items: center;
+  transition: none;
+}
+
+.producto:hover{
+    transform: scale(1);
+}
+
+.producto__nombre {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.producto__descripcion {
+  font-size: 1.6rem;
+}
+
+.producto__precio {
+  color: orange;
+  font-size: 6rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.producto__enlace,
+.entrada__enlace {
+  margin-top: 2rem;
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 1rem 5rem;
+  border: 2px solid orange;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition-duration: 0.3s;
+}
+
+.producto__enlace:hover,
+.entrada__enlace:hover {
+  background-color: orange;
+  color: white;
+}
+
+
+@media (max-width:768px){
+
+.producto{
+    grid-template-columns: repeat(1,1fr);
+
+}
+
+}
+
+@media (max-width:450px){
+
+.producto{
+    width: 100%;
+    overflow: visible;
+    box-shadow: none;
+    margin-left: -5rem;
+    text-align: center;
+    
+}
+
+.producto__imagen{
+    margin: 0 auto;
+}
+
+}
+@media (max-width:350px){
+
+.producto{
+    width: 100%;
+    overflow: visible;
+    box-shadow: none;
+    margin-left: -5rem;
+    text-align: center;
+    
+}
+
+.producto__imagen{
+    margin: 0 auto;
+}
+
+}

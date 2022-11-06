@@ -14,7 +14,7 @@
       <div class="header__container">
         <div class="header__encabezado">
           <div class="encabezado__texto encabezado__texto--1">
-            <h2 class="encabezado__texto1">Atención</h2>
+            <h2 class="encabezado__texto1">AtenciÃ³n</h2>
             <h2 class="encabezado__texto1">en Lima*</h2>
           </div>
 
@@ -57,13 +57,13 @@
         </div>
 
  <nav class="navegacion">
-            <a class="navegacion__enlace" href="index.html">Menu</a>
-            <a class="navegacion__enlace" href="nosotros.html">Promociones</a>
-            <a class="navegacion__enlace" href="blog.html">Locales</a>
-            <a class="navegacion__enlace" href="tienda.html">Nosotros</a>
+            <a class="navegacion__enlace" href="index.jsp">Menu</a>
+            <a class="navegacion__enlace" href="nosotros.jsp">Promociones</a>
+            <a class="navegacion__enlace" href="blog.jsp">Locales</a>
+            <a class="navegacion__enlace" href="tienda.jsp">Nosotros</a>
 
-            <a class="navegacion__enlace--carrito" href="carrito.html"><p>Agregar</p> <img class="carrito__img" src="img/carrito.png" alt=""></a>
- <a class="navegacion__enlace--mantenimiento" href="mantenimiento.html"><img class="mantenimiento__img" src="img/mantenimiento.png" alt=""></a>
+            <a class="navegacion__enlace--carrito" href="carrito.jsp"><p>Agregar</p> <img class="carrito__img" src="img/carrito.png" alt=""></a>
+ <a class="navegacion__enlace--mantenimiento" href="mantenimiento.jsp"><img class="mantenimiento__img" src="img/mantenimiento.png" alt=""></a>
 
           </nav>
 
@@ -94,10 +94,10 @@
             <div class="footer__enlaces">
 
     <nav class="footer__navegacion">
-                <a class="footer__enlace" href="index.html">Menu</a>
-                <a class="footer__enlace" href="nosotros.html">Promociones</a>
-                <a class="footer__enlace" href="blog.html">Locales</a>
-                <a class="footer__enlace" href="tienda.html">Nosotros</a>
+                <a class="footer__enlace" href="index.jsp">Menu</a>
+                <a class="footer__enlace" href="nosotros.jsp">Promociones</a>
+                <a class="footer__enlace" href="blog.jsp">Locales</a>
+                <a class="footer__enlace" href="tienda.jsp">Nosotros</a>
 
                     
             </nav>
@@ -119,7 +119,7 @@
             <div class="footer__copyright">
                 <br>
                 <hr>
-                <p>© 2022 Todos los derechos Reservados.</p>
+                <p>Â© 2022 Todos los derechos Reservados.</p>
 
             </div>
 

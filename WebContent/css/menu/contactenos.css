@@ -1,0 +1,98 @@
+
+
+
+
+
+.contactenos__grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+
+.contactenos__derecho{
+margin: 0 auto;
+padding:  5rem;
+}
+
+.contactenos__formulario{
+    margin: 0 auto;
+    padding:  5rem;
+    background-color: rgb(55, 55, 55);
+  
+}
+
+.contactenos__derecho p{
+    color: orange;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+
+.contactenos__formulario a{
+    text-decoration: none;
+    color: rgb(254, 165, 0);
+    margin-right:2rem;
+    font-size: 16px;
+    transition: all ease .3s;
+
+}
+.contactenos__formulario a:hover{
+   color: white;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    resize: none;
+    outline: none;
+    padding: 1rem;
+}
+
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    
+}
+.campo label{
+    font-size: 16px;
+    color: orange;
+}
+.campo input{
+    height: 4rem;
+    outline: none;
+    border: none;
+    padding: 0 1rem;
+}
+button{
+    padding: 1rem 0;
+
+    border: none;
+    color: white;
+    background-color: orange;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: -1px 1px 1px rgba(0, 0, 0, 1);
+    transition: all ease .3s;
+}
+button:hover{
+    background-color: rgb(244, 189, 86);
+    
+
+}
+
+@media (max-width:768px){
+    .contactenos__grid{
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+
+

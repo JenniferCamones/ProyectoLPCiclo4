@@ -1,0 +1,64 @@
+
+
+
+
+
+
+
+
+.__container{
+    text-align: center;
+
+}
+
+.pedido__container{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.pedido__container h3{
+    color: orange;
+    font-weight: bold;
+}
+.table_responsive{
+    background-color: white;
+    border: none;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 1);
+}
+
+
+.tabla{
+    background-color: white;
+    border: none;
+}
+
+
+
+
+thead tr{
+    background-color:orange ;
+    text-shadow: -1px 1px 1px  rgba(0, 0, 0, 1);
+    
+}
+
+.action_btn i{
+    color: orange;
+
+}
+
+.comprar{
+    padding: 1rem 2rem;
+
+    border: none;
+    background-color: orange;
+    color: white;
+ text-shadow: -1px 1px 1px  rgba(0, 0, 0, 1);
+
+transition: .3s all ease;
+}
+
+
+.comprar:hover{
+    background-color: black;
+}
+
