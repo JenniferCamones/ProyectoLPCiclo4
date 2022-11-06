@@ -22,7 +22,7 @@ public class MySqlProductoDAO implements ProductoDAO {
 
 		try {
 			cn = MySqlDBConexion.getConexion();
-			String  sql = "select * from Producto";
+			String  sql = "select p.idProducto,p.nombre,p.stockActual,p.precioActual,p.fechaRegistro,p.empleadoRegistro,p.fechaModifica,p.empleadoModifica,cp.nombre_categoria from Producto inner join CategoriaProducto cp on p.idCategoriaProducto = cp.idCategoriaProducto";
 			pstm = cn.prepareStatement(sql);
 			rs = pstm.executeQuery();
 			while (rs.next()) {
@@ -35,7 +35,7 @@ public class MySqlProductoDAO implements ProductoDAO {
 				obj.setEmpleadoRegistro(rs.getInt(6));
 				obj.setFechaModifica(rs.getString(7));
 				obj.setEmpleadoModifica(rs.getInt(8));
-				obj.setIdCategoriaPro(rs.getInt(9));
+				obj.setNombre_cate(rs.getString(9));
 				data.add(obj);
 			}
 		}
@@ -79,7 +79,7 @@ public class MySqlProductoDAO implements ProductoDAO {
 				
 		try {
 			cn = MySqlDBConexion.getConexion();
-			String sql = "update Producto set Producto=?,stockActual=?,precioActual=?,fechaRegistro=?,empleadoRegistro=?,fechaModifica=?,empleadoModifica=?,idCategoriaProducto=? where idProducto=?";
+			String sql = "update Producto set nombre=?,stockActual=?,precioActual=?,fechaRegistro=?,empleadoRegistro=?,fechaModifica=?,empleadoModifica=?,idCategoriaProducto=? where idProducto=?";
 			pstm = cn.prepareStatement(sql);
 			pstm.setString(1, obj.getNombre());
 			pstm.setInt(2, obj.getStockActual());

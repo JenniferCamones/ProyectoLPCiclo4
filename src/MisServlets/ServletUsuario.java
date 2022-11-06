@@ -57,7 +57,7 @@ public class ServletUsuario extends HttpServlet {
 		}
 		else {
 			if(u.getIdTipoUsu() == 1) {
-				response.sendRedirect("menu.jsp");
+				response.sendRedirect("producto.jsp");
 			}else {
 				response.sendRedirect("base.jsp");
 			}

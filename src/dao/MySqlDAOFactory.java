@@ -7,8 +7,7 @@ public class MySqlDAOFactory extends DAOFactory {
 
 	@Override
 	public ProductoDAO getProducto() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MySqlProductoDAO();
 	}
 	public EmpleadoDAO getEmpleado() {
 		// TODO Auto-generated method stub
