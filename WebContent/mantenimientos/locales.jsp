@@ -7,17 +7,19 @@
     <title>Base</title>
 
     
-    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
     
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="../css/base.css" />
     
-    <link rel="stylesheet" href="css/base-mobile.css" />
+    <link rel="stylesheet" href="../css/base-mobile.css" />
     
-    <link rel="stylesheet" href="css/mantenimiento/listaProducto.css">
+    <link rel="stylesheet" href="../css/mantenimiento/listaProducto.css">
     
-    <link rel="stylesheet" href="./css/menu/menu.css">
+    <link rel="stylesheet" href=".././css/menu/menu.css">
     
-    <link rel="stylesheet" href="./css/mantenimiento/inicioAdmin.css">
+    <link rel="stylesheet" href=".././css/mantenimiento/inicioAdmin.css">
+
+     <link rel="stylesheet" href="../css/mantenimiento/empleaods.css">
 
     <link
       rel="stylesheet"
@@ -65,7 +67,7 @@
       <div class="header__container">
         <div class="header__encabezado">
           <div class="encabezado__texto encabezado__texto--1">
-            <h2 class="encabezado__texto1">Atención</h2>
+            <h2 class="encabezado__texto1">AtenciÃ³n</h2>
             <h2 class="encabezado__texto1">en Lima*</h2>
           </div>
 
@@ -111,15 +113,15 @@
         <nav class="navegacion">
           <select class="mantenimiento" name="" id="" onchange="location=this.value;" >
             <option selected="true"  value="" disabled="disabled" >Mantenimiento</option>
-          <option value="./mantenimientos/empleados.jsp" >Empleados </option>
-                <option  value="./mantenimientos/productos.jsp"  >Productos</option>
-                  <option  value="./mantenimientos/locales.jsp" >Locales</option>
-                    <option  value="./mantenimientos/proveedores.jsp"  >Proveedores</option>
+          <option value="empleados.jsp" >Empleados </option>
+                <option  value="productos.jsp"  >Productos</option>
+                  <option  value="locales.jsp" >Locales</option>
+                    <option  value="proveedores.jsp"  >Proveedores</option>
 
           </select>
-          <a class="navegacion__enlace" href="consultas/consultar.jsp">Consultas</a>
-          <a class="navegacion__enlace" href="reportes/reportes.jsp">Reportes</a>
-          <a class="navegacion__enlace" href="ventas/realizarVenta.jsp">Ventas</a>
+          <a class="navegacion__enlace" href="../consultas/consultar.jsp">Consultas</a>
+          <a class="navegacion__enlace" href="../reportes/reportes.jsp">Reportes</a>
+          <a class="navegacion__enlace" href="../ventas/realizarVenta.jsp">Ventas</a>
          
 
       
@@ -130,10 +132,113 @@
     <main class="__container">
 
 
-    <h2 class="__heading">Bienvenido Nombre</h2>
 
 
-    <img src="img/matenimiento.jpg" alt="">
+
+   <h2 class="__heading" id="titulo">Mantenimiento Locales</h2>
+
+
+    <div class="mantenimiento__grid">
+
+
+
+
+      <form action="" class="formulario__crear">
+        <div class="registrar__grid">
+           <h3 class="__heading">Agregar Local</h3>
+    <div class="campo">
+
+                <label for="codigo">Codigo:</label>
+                <input type="text" name="codigo"  placeholder="Codigo">
+
+            </div>
+
+                <div class="campo">
+
+                <label for="departamento">Departamento:</label>
+                <input type="text" name="departamento"  placeholder="Departamento">
+
+            </div>
+   <div class="campo">
+
+                <label for="distrito">Distrito:</label>
+                <input type="text" name="distrito"  placeholder="Distrito">
+
+            </div>
+
+   <div class="campo">
+
+                <label for="direccion">Direccion:</label>
+                <input type="text" name="direccion"  placeholder="Direccion">
+
+            </div>
+
+               <div class="campo">
+
+                <label for="telefono">Telefono:</label>
+                <input type="text" name="telefono"  placeholder="Telefono">
+
+            </div>
+
+
+           
+        </div>
+
+        <button type="submit">Crear</button>
+        <button>Nuevo</button>
+
+      </form>
+
+
+      <form action="" class="formulario__crear">
+        <div class="registrar__grid">
+           <h3 class="__heading">Actualizar Local</h3>
+    <div class="campo">
+
+                <label for="codigo">Codigo:</label>
+                <input type="text" name="codigo"  placeholder="Codigo">
+
+            </div>
+
+                <div class="campo">
+
+                <label for="departamento">Departamento:</label>
+                <input type="text" name="departamento"  placeholder="Departamento">
+
+            </div>
+   <div class="campo">
+
+                <label for="distrito">Distrito:</label>
+                <input type="text" name="distrito"  placeholder="Distrito">
+
+            </div>
+
+   <div class="campo">
+
+                <label for="direccion">Direccion:</label>
+                <input type="text" name="direccion"  placeholder="Direccion">
+
+            </div>
+
+               <div class="campo">
+
+                <label for="telefono">Telefono:</label>
+                <input type="text" name="telefono"  placeholder="Telefono">
+
+            </div>
+
+
+           
+        </div>
+
+        <button type="submit">Actualizar</button>
+        <button>Listar Local</button>
+
+      </form>
+     
+
+
+    </div>
 
       
        
@@ -160,17 +265,17 @@
           </nav>
 
           <div class="footer__redes">
-            <a href=""><img src="img/facebook.png" alt="" /></a>
-            <a href=""><img src="img/youtube.png" alt="" /></a>
-            <a href=""><img src="img/twitter.png" alt="" /></a>
-            <a href=""><img src="img/instagram.png" alt="" /></a>
+            <a href=""><img src="../img/facebook.png" alt="" /></a>
+            <a href=""><img src="../img/youtube.png" alt="" /></a>
+            <a href=""><img src="../img/twitter.png" alt="" /></a>
+            <a href=""><img src="../img/instagram.png" alt="" /></a>
           </div>
         </div>
 
         <div class="footer__copyright">
           <br />
           <hr />
-          <p>© 2022 Todos los derechos Reservados.</p>
+          <p>Â© 2022 Todos los derechos Reservados.</p>
         </div>
       </div>
     </footer>

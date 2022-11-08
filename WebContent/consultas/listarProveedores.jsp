@@ -7,17 +7,18 @@
     <title>Base</title>
 
     
-    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
     
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="../css/base.css" />
     
-    <link rel="stylesheet" href="css/base-mobile.css" />
+    <link rel="stylesheet" href="../css/base-mobile.css" />
     
-    <link rel="stylesheet" href="css/mantenimiento/listaProducto.css">
+    <link rel="stylesheet" href="../css/mantenimiento/listaProducto.css">
     
-    <link rel="stylesheet" href="./css/menu/menu.css">
+    <link rel="stylesheet" href=".././css/menu/menu.css">
     
-    <link rel="stylesheet" href="./css/mantenimiento/inicioAdmin.css">
+    <link rel="stylesheet" href=".././css/mantenimiento/inicioAdmin.css">
+      <link rel="stylesheet" href=".././css/carrito.css">
 
     <link
       rel="stylesheet"
@@ -57,6 +58,15 @@
           padding: 3rem 2rem;
         }
 
+        .container-1 label i{
+          margin-left: -28rem;
+        }
+
+            .table_responsive{
+                margin-top: 5rem;
+            }
+
+
       </style>
  
 </head>
@@ -65,7 +75,7 @@
       <div class="header__container">
         <div class="header__encabezado">
           <div class="encabezado__texto encabezado__texto--1">
-            <h2 class="encabezado__texto1">Atención</h2>
+            <h2 class="encabezado__texto1">AtenciÃ³n</h2>
             <h2 class="encabezado__texto1">en Lima*</h2>
           </div>
 
@@ -111,15 +121,15 @@
         <nav class="navegacion">
           <select class="mantenimiento" name="" id="" onchange="location=this.value;" >
             <option selected="true"  value="" disabled="disabled" >Mantenimiento</option>
-          <option value="./mantenimientos/empleados.jsp" >Empleados </option>
-                <option  value="./mantenimientos/productos.jsp"  >Productos</option>
-                  <option  value="./mantenimientos/locales.jsp" >Locales</option>
-                    <option  value="./mantenimientos/proveedores.jsp"  >Proveedores</option>
+          <option value="../mantenimientos/empleados.jsp" >Empleados </option>
+                <option  value="../mantenimientos/productos.jsp"  >Productos</option>
+                  <option  value="../mantenimientos/locales.jsp" >Locales</option>
+                    <option  value="../mantenimientos/proveedores.jsp"  >Proveedores</option>
 
           </select>
-          <a class="navegacion__enlace" href="consultas/consultar.jsp">Consultas</a>
-          <a class="navegacion__enlace" href="reportes/reportes.jsp">Reportes</a>
-          <a class="navegacion__enlace" href="ventas/realizarVenta.jsp">Ventas</a>
+          <a class="navegacion__enlace active" href="../consultas/consultar.jsp">Consultas</a>
+          <a class="navegacion__enlace" href="../reportes/reportes.jsp">Reportes</a>
+          <a class="navegacion__enlace" href="../ventas/realizarVenta.jsp">Ventas</a>
          
 
       
@@ -130,11 +140,71 @@
     <main class="__container">
 
 
-    <h2 class="__heading">Bienvenido Nombre</h2>
+    <h2 class="__heading">Lista Proveedores</h2>
+      <div class="formulario-busqueda">
+        <form action="consultar.jsp" class="buscador" >
+
+            <div class="opciones">
+                <select name="lista" class="categorias" id="categoria" >
+                        <option value="empleados">Empleados</option>
+                        <option value="locales">Locales</option>
+                             <option value="productos">Productos</option>
+                        <option value="proveedores">Proveedores</option>
+                </select>
+            </div>
+
+            <div class="box">
+  <div class="container-1">
+      <label class="icon"><i class="fa fa-search"></i></label>
+      <input type="search" name="buscar" id="search" placeholder="Buscar..." autocomplete="off" />
+      
+  </div>
+
+</div>
+   
+        </form>
+     </div>
+
+                           <div class="table_responsive">
+        <table class="tabla">
+          <thead>
+            <tr>
+            <th>Codigo </th>
+              <th>Nombre</th>
+              <th>Direccion</th>
+              <th>Correo</th>
+              
+                <th>Acciones</th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              
+           <td>PR0001</td>
+              <td>Hamburguesa</td>
+              <td>av las palmeras</td>
+              <td>hamburguesa.hotmai.com</td>
+            
+            
+              <td>
+                <span class="action_btn">
+                   <a href="#"><i class="fa-sharp fa-solid fa-edit"></i></a>
+                  <a href="#"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                
+                </span>
+              </td>
+            </tr>
+
+            
+          </tbody>
 
 
-    <img src="img/matenimiento.jpg" alt="">
 
+        </table>
+
+    </div>
       
        
 
@@ -160,17 +230,17 @@
           </nav>
 
           <div class="footer__redes">
-            <a href=""><img src="img/facebook.png" alt="" /></a>
-            <a href=""><img src="img/youtube.png" alt="" /></a>
-            <a href=""><img src="img/twitter.png" alt="" /></a>
-            <a href=""><img src="img/instagram.png" alt="" /></a>
+            <a href=""><img src="../img/facebook.png" alt="" /></a>
+            <a href=""><img src="../img/youtube.png" alt="" /></a>
+            <a href=""><img src="../img/twitter.png" alt="" /></a>
+            <a href=""><img src="../img/instagram.png" alt="" /></a>
           </div>
         </div>
 
         <div class="footer__copyright">
           <br />
           <hr />
-          <p>© 2022 Todos los derechos Reservados.</p>
+          <p>Â© 2022 Todos los derechos Reservados.</p>
         </div>
       </div>
     </footer>

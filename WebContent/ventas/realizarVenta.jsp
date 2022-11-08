@@ -7,17 +7,17 @@
     <title>Base</title>
 
     
-    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
     
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="../css/base.css" />
     
-    <link rel="stylesheet" href="css/base-mobile.css" />
+    <link rel="stylesheet" href="../css/base-mobile.css" />
     
-    <link rel="stylesheet" href="css/mantenimiento/listaProducto.css">
+    <link rel="stylesheet" href="../css/mantenimiento/listaProducto.css">
     
-    <link rel="stylesheet" href="./css/menu/menu.css">
+    <link rel="stylesheet" href=".././css/menu/menu.css">
     
-    <link rel="stylesheet" href="./css/mantenimiento/inicioAdmin.css">
+    <link rel="stylesheet" href=".././css/mantenimiento/inicioAdmin.css">
 
     <link
       rel="stylesheet"
@@ -65,7 +65,7 @@
       <div class="header__container">
         <div class="header__encabezado">
           <div class="encabezado__texto encabezado__texto--1">
-            <h2 class="encabezado__texto1">Atención</h2>
+            <h2 class="encabezado__texto1">AtenciÃ³n</h2>
             <h2 class="encabezado__texto1">en Lima*</h2>
           </div>
 
@@ -111,15 +111,15 @@
         <nav class="navegacion">
           <select class="mantenimiento" name="" id="" onchange="location=this.value;" >
             <option selected="true"  value="" disabled="disabled" >Mantenimiento</option>
-          <option value="./mantenimientos/empleados.jsp" >Empleados </option>
-                <option  value="./mantenimientos/productos.jsp"  >Productos</option>
-                  <option  value="./mantenimientos/locales.jsp" >Locales</option>
-                    <option  value="./mantenimientos/proveedores.jsp"  >Proveedores</option>
+          <option value="../mantenimientos/empleados.jsp" >Empleados </option>
+                <option  value="../mantenimientos/productos.jsp"  >Productos</option>
+                  <option  value="../mantenimientos/locales.jsp" >Locales</option>
+                    <option  value="../mantenimientos/proveedores.jsp"  >Proveedores</option>
 
           </select>
-          <a class="navegacion__enlace" href="consultas/consultar.jsp">Consultas</a>
-          <a class="navegacion__enlace" href="reportes/reportes.jsp">Reportes</a>
-          <a class="navegacion__enlace" href="ventas/realizarVenta.jsp">Ventas</a>
+          <a class="navegacion__enlace" href="../consultas/consultar.jsp">Consultas</a>
+          <a class="navegacion__enlace" href="../reportes/reportes.jsp">Reportes</a>
+          <a class="navegacion__enlace active" href="../ventas/realizarVenta.jsp">Ventas</a>
          
 
       
@@ -130,10 +130,9 @@
     <main class="__container">
 
 
-    <h2 class="__heading">Bienvenido Nombre</h2>
+    <h2 class="__heading">Realizar Venta</h2>
 
 
-    <img src="img/matenimiento.jpg" alt="">
 
       
        
@@ -160,17 +159,17 @@
           </nav>
 
           <div class="footer__redes">
-            <a href=""><img src="img/facebook.png" alt="" /></a>
-            <a href=""><img src="img/youtube.png" alt="" /></a>
-            <a href=""><img src="img/twitter.png" alt="" /></a>
-            <a href=""><img src="img/instagram.png" alt="" /></a>
+            <a href=""><img src="../img/facebook.png" alt="" /></a>
+            <a href=""><img src="../img/youtube.png" alt="" /></a>
+            <a href=""><img src="../img/twitter.png" alt="" /></a>
+            <a href=""><img src="../img/instagram.png" alt="" /></a>
           </div>
         </div>
 
         <div class="footer__copyright">
           <br />
           <hr />
-          <p>© 2022 Todos los derechos Reservados.</p>
+          <p>Â© 2022 Todos los derechos Reservados.</p>
         </div>
       </div>
     </footer>

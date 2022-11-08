@@ -1,0 +1,74 @@
+.mantenimiento__grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+}
+
+.__heading{
+    margin-bottom: 0;
+}
+
+#titulo{
+    margin-bottom: 5rem;
+}
+
+
+
+.formulario__crear{
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    margin: 0 auto;
+    box-shadow: 1px 1px 5px 1px rgba(0  , 0, 0, 1);
+    padding: 0 2rem 2rem 2rem; 
+}
+
+.registrar__grid{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 3rem;
+    margin: 0 4rem 2rem 4rem;
+  
+}
+
+.campo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+input{
+    padding: 1rem 2rem;
+    outline: none;
+}
+
+button{
+    padding: 1rem 2rem;
+    background-color: orange;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    border: none;
+    transition: .3s all ease;
+}
+button:hover{
+    background-color: black;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width:1100px) {
+    .mantenimiento__grid{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(2,1fr);
+        row-gap: 5rem;
+}
+
+
+}
