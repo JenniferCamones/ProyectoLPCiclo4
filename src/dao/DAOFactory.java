@@ -1,5 +1,6 @@
 package dao;
 
+import interfaces.ClienteDAO;
 import interfaces.ProductoDAO;
 
 public abstract class DAOFactory {
@@ -12,24 +13,13 @@ public abstract class DAOFactory {
 	public static final int XML = 5;
 	
 	//Se pone tantas interfaces como tengas
+	
+	public abstract ClienteDAO getCliente();
 	public abstract ProductoDAO getProducto();
+
+    public abstract MySqlUsuariosDAO getUsuarios();
 	
 	public static DAOFactory getDAOFactory(int whichFactory) {
-		switch(whichFactory) {
-			case MYSQL:
-				return new MySqlDAOFactory();
-			case ORACLE:
-				//return new OracleDAOFactory();
-			case SQLSERVER:
-				//return new SQL ServerDAOFactory();
-		}
-		return null;
-	}
-	
-	//INTERFACE usuarios
-public abstract MySqlUsuariosDAO getUsuarios();
-	
-	public static DAOFactory getDAOFactory1(int whichFactory) {
 		switch(whichFactory) {
 			case MYSQL:
 				return new MySqlDAOFactory();

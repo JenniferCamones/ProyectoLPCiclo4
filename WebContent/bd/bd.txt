@@ -1,0 +1,51 @@
+create database VentasDelibery;
+drop database VentasDelibery;
+use VentasDelibery;
+
+create table tb_tipo(
+id_tipo  int not null primary key,
+nom_tipo varchar(20)
+);
+
+create table tb_cliente(
+codCliente char (5) not null ,
+nombre varchar (30) not null,
+apellido varchar (30) not null,
+telefono varchar(11) null,
+direccion varchar(30) null,
+correo varchar(50) null,
+usuario varchar(50) not null,
+clave varchar(50) not null,
+id_tipo int default 2,
+foreign key (id_tipo) references tb_tipo(id_tipo)
+);
+
+create table tb_empleado(
+codEmpleado char (5) not null ,
+nombre varchar(30)null,
+apellidos varchar(30)null,
+usuario varchar(50) null,
+contraseña varchar(50) null,
+telefono varchar(10)null,
+direccion varchar(50)null,
+correo varchar(50)null,
+id_tipo int default 3,
+foreign key (id_tipo) references tb_tipo(id_tipo)
+
+);
+
+
+select substring(max(codCliente),2) from tb_cliente;
+
+-- TIPOS USUARIOS
+insert into tb_tipo values (1, 'Administrador');
+insert into tb_tipo values (2, 'Cliente');
+insert into tb_tipo values (3, 'Empleado');
+
+select *from tb_tipo;
+-- USUARIOS
+	
+insert into tb_cliente values ('C0001','Diego', 'Alonso','965135227', 'mz107lt6','diego@hotmail.com','diego','123',default);
+select *from tb_cliente;
+insert into tb_empleado values ('E0001','Pepe', 'Aguilar','pepe','123','932468110', 'mz107lt6','diego@hotmail.com',default);
+select *from tb_empleado

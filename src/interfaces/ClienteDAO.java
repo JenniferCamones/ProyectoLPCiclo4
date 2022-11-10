@@ -3,11 +3,20 @@ package interfaces;
 import java.util.List;
 
 import beans.ClienteDTO;
+import beans.ProductoDTO;
 
 public interface ClienteDAO {
 	 public List<ClienteDTO> listarCliente();
-	 public boolean insertarCliente(ClienteDTO c);
-	 public boolean actualizarCliente(ClienteDTO c);
-	 public boolean eliminarCliente(int idCliente);
-	 public boolean activarCliente(int idCliente);
+	 public int agregarCliente(ClienteDTO c);
+	 public int actualizarCliente(ClienteDTO c);
+	 public int eliminarCliente(int idCliente);
+	 public String generarCodigo();
+	 public ProductoDTO buscarCliente(int cod);
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 }

@@ -7,13 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/register/register.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 <body>
     
     <div class="form-container">
 
 
-        <form class="formulario" action="">
+        <form class="formulario" action="ServletCliente?tipo=agregar" id="formulario" method="post">
 
             <div class="logo">
                 <img src="img/delibery-logo-sinfondo.png" alt="">
@@ -23,32 +24,32 @@
             <div class="campos">
   <div class="campo">
 
-                <label for="correo">Nombre:</label>
-                <input type="text" name="correo" id="correo" placeholder="Ingresa su nombre">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="txt_nombre" id="nombre" placeholder="Ingresa su nombre">
 
             </div>
               <div class="campo">
 
-                <label for="correo">Apellido:</label>
-                <input type="text" name="correo" id="correo" placeholder="Ingresa su apellido">
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="txt_apellido" id="apellido" placeholder="Ingresa su apellido">
 
             </div>
              <div class="campo">
 
-                <label for="correo">Telefono:</label>
-                <input type="text" name="correo" id="correo" placeholder="Ingresa  telefono ">
+                <label for="telefono">Telefono:</label>
+                <input type="text" name="txt_telefono" id="telefono" placeholder="Ingresa  telefono ">
 
             </div>
              <div class="campo">
 
-                <label for="correo">Direccion:</label>
-                <input type="text" name="correo" id="correo" placeholder="Ingresa  direccion ">
+                <label for="direccion">Direccion:</label>
+                <input type="text" name="txt_direccion" id="direccion" placeholder="Ingresa  direccion ">
 
             </div>
               <div class="campo">
 
-                <label for="correo">Usuario:</label>
-                <input type="text" name="correo" id="correo" placeholder="Ingresa  usuario">
+                <label for="usuario">Usuario:</label>
+                <input type="text" name="txt_usuario" id="usuario" placeholder="Ingresa  usuario">
 
             </div>
 
@@ -56,22 +57,22 @@
             <div class="campo">
 
                 <label for="correo">Correo:</label>
-                <input type="text" name="correo" id="correo" placeholder="Ingresa tu correo">
+                <input type="text" name="txt_correo" id="correo" placeholder="Ingresa tu correo">
 
             </div>
 
                 <div class="campo">
 
-                <label for="password">Contraseña:</label>
-                <input type="password" name="password" id="password" placeholder="Ingresa Contraseña">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" name="txt_clave" id="contrasena" placeholder="Ingresa Contraseña">
 
             </div>
 
             
                 <div class="campo">
 
-                <label for="password">Confirme contraseña:</label>
-                <input type="password" name="password" id="password" placeholder="Ingresa Contraseña">
+                <label for="confirmar">Confirme contraseña:</label>
+                <input type="password" name="txt_repassword" id="confirmar" placeholder="Ingresa Contraseña">
 
             </div>
             </div>
@@ -80,7 +81,7 @@
 
          
 
-            <button class="boton-enviar" type="submit">Registrarse</button>
+            <button class="boton-enviar" id="botonRegistrar" type="submit">Registrarse</button>
 
            
             <a href="login.jsp">Ya tienes cuenta?</a>
@@ -94,8 +95,8 @@
     </div>
 
 
-
-
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="sweetalert2.min.js"></script>
+<script src="./js/registrarCliente.js"></script>
 </body>
 </html>
