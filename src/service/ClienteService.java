@@ -24,6 +24,9 @@ public class ClienteService {
 		return objCli.generarCodigo();
 	}
 	
+	public ClienteDTO iniciaSesion(String login) {
+		return objCli.iniciarSesion(login);
+	}
 	
 	
 	

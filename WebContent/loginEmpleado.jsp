@@ -13,13 +13,13 @@
     <div class="form-container">
 
 
-        <form class="formulario" action="ServletCliente?tipo=sesion" method="post">
+        <form class="formulario" action="ServletEmpleado?tipo=sesion" method="post">
 
             <div class="logo">
                 <img src="img/delibery-logo-sinfondo.png" alt="">
             </div>
 
-            <h2>Ingresa a Delivery</h2>
+            <h2>Login Empleado</h2>
 
             <div class="campo">
 
@@ -29,25 +29,21 @@
             </div>
 
                 <div class="campo">
-		
+
                 <label for="password">Contraseña:</label>
                 <input type="password" name="txt_clave" id="password" placeholder="Ingresa Contraseña">
 
             </div>
-				
-				     
-				
+
             <div class="campo-grid">
 
                    
 
-               
+                
 
-                 <a href="loginEmpleado.jsp" style="padding: 1rem 0">Login Empleado</a>
+         <a href="login.jsp" style="padding: 1rem 0">Login Cliente</a>
 
            
-            
-         
            
             </div>
 
@@ -56,7 +52,7 @@
             <button class="boton-enviar" type="submit">Ingresar</button>
 
            
-            <a href="register.jsp">Registrarse</a>
+            
 
         </form>
 

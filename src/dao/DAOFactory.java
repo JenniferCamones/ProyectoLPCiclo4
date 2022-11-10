@@ -1,6 +1,7 @@
 package dao;
 
 import interfaces.ClienteDAO;
+import interfaces.EmpleadoDAO;
 import interfaces.ProductoDAO;
 
 public abstract class DAOFactory {
@@ -16,7 +17,8 @@ public abstract class DAOFactory {
 	
 	public abstract ClienteDAO getCliente();
 	public abstract ProductoDAO getProducto();
-
+	public abstract EmpleadoDAO getEmpleado();
+	
     public abstract MySqlUsuariosDAO getUsuarios();
 	
 	public static DAOFactory getDAOFactory(int whichFactory) {

@@ -9,22 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.ClienteDTO;
-
-
-import service.ClienteService;
+import beans.EmpleadosDTO;
+import service.EmpleadoService;
 
 /**
- * Servlet implementation class ServletCliente
+ * Servlet implementation class ServletEmpleado
  */
-@WebServlet("/ServletCliente")
-public class ServletCliente extends HttpServlet {
+@WebServlet("/ServletEmpleado")
+public class ServletEmpleado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	ClienteService servicio=new ClienteService();
+       EmpleadoService servicio=new EmpleadoService();
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public ServletCliente() {
+    public ServletEmpleado() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -43,6 +42,7 @@ public class ServletCliente extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String xtipo = request.getParameter("tipo");
 		if(xtipo.equals("sesion")) {
@@ -54,17 +54,13 @@ public class ServletCliente extends HttpServlet {
 		}
 	
 	}
-
-
-
-
 	private void CerrarSesion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession sesion=request.getSession();
 		sesion.invalidate();
 	      request.setAttribute("msg", "Iniciar Sesion");
 
-	         request.getRequestDispatcher("login.jsp").forward(request, response);
+	         request.getRequestDispatcher("loginEmpleado.jsp").forward(request, response);
 	}
 
 	private void iniciarSesion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -74,27 +70,27 @@ public class ServletCliente extends HttpServlet {
 		System.out.println("Login:  "+xlogin); 
 		System.out.println("Clave:  "+xclave);	
 		
-		ClienteDTO obj=servicio.iniciaSesion(xlogin);
+		EmpleadosDTO obj=servicio.iniciaSesion(xlogin);
 		if(obj !=null) {
 			if(obj.getClave().equals(xclave)) {
 				HttpSession sesion=request.getSession();
 				sesion.setAttribute("datos",obj);
-				request.getRequestDispatcher("inicioUsuario.jsp").forward(request,response);
+				request.getRequestDispatcher("inicioAdmin.jsp").forward(request,response);
 			}else {
 				request.setAttribute("msg","Contraseña Incorrecta");
-				request.getRequestDispatcher("login.jsp").forward(request,response);
+				request.getRequestDispatcher("loginEmpleado.jsp").forward(request,response);
 			}
 		}else {
 		       request.setAttribute("msg", "Usuario no existe...!!!");
 
-		         request.getRequestDispatcher("login.jsp").forward(request, response);
+		         request.getRequestDispatcher("loginEmpleado.jsp").forward(request, response);
 		}
 	}
 
 	private void agregar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String codcli, nombre,apellido,telefono,direccion,correo,usuario,clave,repassword;
+		String codemp, nombre,apellido,telefono,direccion,correo,usuario,clave;
 		int idTipo;
-		codcli=servicio.generaCodigo();
+		codemp=servicio.generaCodigo();
 		nombre=request.getParameter("txt_nombre");
 		apellido=request.getParameter("txt_apellido");
 		telefono=request.getParameter("txt_telefono");
@@ -102,41 +98,33 @@ public class ServletCliente extends HttpServlet {
 		correo=request.getParameter("txt_correo");
 		usuario=request.getParameter("txt_usuario");
 		clave=request.getParameter("txt_clave");
-		repassword=request.getParameter("txt_repassword");
+		
 		idTipo=2;
 	
 		
 		
-		if(codcli.equals("")|| nombre.equals("")|| apellido.equals("")|| telefono.equals("")
-				|| direccion.equals("")	|| correo.equals("")|| usuario.equals("")||clave.equals("")||repassword.equals("")) {
-			return;
-		}
-		if(!clave.equals(repassword)) {
+		if(codemp.equals("")|| nombre.equals("")|| apellido.equals("")|| telefono.equals("")
+				|| direccion.equals("")	|| correo.equals("")|| usuario.equals("")||clave.equals("")) {
 			return;
 		}
 		
 		
 		
-		if(  clave.equals(repassword)) {
-			ClienteDTO cli = new ClienteDTO();
-		cli.setCodcli(codcli);
-		cli.setNombre(nombre);
-		cli.setApellido(apellido);
-		cli.setTelefono(telefono);
-		cli.setDireccion(direccion);
-		cli.setCorreo(correo);
-		cli.setUsuario(usuario);
-		cli.setClave(clave);
-		servicio.agregaCliente(cli);
-		request.getRequestDispatcher("register.jsp").forward(request, response);
-		}else {
-			return;
-		}
+		
+		
+		EmpleadosDTO emp = new EmpleadosDTO();
+		emp.setCodemp(codemp);
+		emp.setNombre(nombre);
+		emp.setApellido(apellido);
+			emp.setUsuario(usuario);
+		emp.setClave(clave);
+		emp.setTelefono(telefono);
+		emp.setDireccion(direccion);
+		emp.setCorreo(correo);
+	
+		servicio.agregaEmpleado(emp);
 		
 		
 		
 	}
-
-
-
 }

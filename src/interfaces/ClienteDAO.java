@@ -3,6 +3,7 @@ package interfaces;
 import java.util.List;
 
 import beans.ClienteDTO;
+
 import beans.ProductoDTO;
 
 public interface ClienteDAO {
@@ -11,9 +12,10 @@ public interface ClienteDAO {
 	 public int actualizarCliente(ClienteDTO c);
 	 public int eliminarCliente(int idCliente);
 	 public String generarCodigo();
-	 public ProductoDTO buscarCliente(int cod);
+	 public ClienteDTO buscarCliente(int cod);
 	 
-	 
+	 public ClienteDTO iniciarSesion(String login);
+		
 	 
 	 
 	 

@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 import beans.ClienteDTO;
+
 import beans.EmpleadosDTO;
 import beans.ProductoDTO;
 import interfaces.ClienteDAO;
@@ -214,10 +215,53 @@ String codigo ="C0001";
 		
 	}
 
+
 	@Override
-	public ProductoDTO buscarCliente(int cod) {
+	public ClienteDTO buscarCliente(int cod) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public ClienteDTO iniciarSesion(String login) {
+		ClienteDTO cli=null;
+		Connection cn=null;
+		PreparedStatement pstm=null;
+		ResultSet rs=null;
+		
+		try {
+			
+			cn=MySqlDBConexion.getConexion();
+			String sql="select * from tb_cliente where usuario=?";
+			pstm= cn.prepareStatement(sql);
+			pstm.setString(1,login);
+			rs=pstm.executeQuery();
+			if(rs.next()) {
+				  cli = new ClienteDTO();
+
+				  cli.setCodcli(rs.getString(1));
+
+				  cli.setNombre(rs.getString(2));
+
+				  cli.setApellido(rs.getString(3));
+				  cli.setTelefono(rs.getString(4));
+				  cli.setDireccion(rs.getString(5));
+				  cli.setCorreo(rs.getString(6));
+				
+
+				  cli.setUsuario(rs.getString(7));
+
+				  cli.setClave(rs.getString(8));
+				  cli.setIdTipo(rs.getInt(9));
+			}
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		       e.printStackTrace();
+		}
+		
+		return cli;
 	}
 	 
 	 /*

@@ -1,3 +1,4 @@
+<jsp:include page="../validarEmpleado.jsp"></jsp:include>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -101,7 +102,7 @@
             </div>
   <div class="header__admin">
             
-              <a href="inicioVisitante.jsp" class="boton-salir"> <i class="fa-sharp fa-solid fa-right-from-bracket"></i> Salir</a>
+              <a href="../ServletEmpleado?tipo=cerrarSesion" class="boton-salir"> <i class="fa-sharp fa-solid fa-right-from-bracket"></i> Salir</a>
 
 
             </div>

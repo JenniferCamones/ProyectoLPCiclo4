@@ -14,7 +14,7 @@ apellido varchar (30) not null,
 telefono varchar(11) null,
 direccion varchar(30) null,
 correo varchar(50) null,
-usuario varchar(50) not null,
+usuario varchar(50) not null unique,
 clave varchar(50) not null,
 id_tipo int default 2,
 foreign key (id_tipo) references tb_tipo(id_tipo)
@@ -24,7 +24,7 @@ create table tb_empleado(
 codEmpleado char (5) not null ,
 nombre varchar(30)null,
 apellidos varchar(30)null,
-usuario varchar(50) null,
+usuario varchar(50) not null unique,
 contraseña varchar(50) null,
 telefono varchar(10)null,
 direccion varchar(50)null,
@@ -36,7 +36,7 @@ foreign key (id_tipo) references tb_tipo(id_tipo)
 
 
 select substring(max(codCliente),2) from tb_cliente;
-
+select substring(max(codEmpleado),2) from tb_empleado;
 -- TIPOS USUARIOS
 insert into tb_tipo values (1, 'Administrador');
 insert into tb_tipo values (2, 'Cliente');
@@ -47,5 +47,7 @@ select *from tb_tipo;
 	
 insert into tb_cliente values ('C0001','Diego', 'Alonso','965135227', 'mz107lt6','diego@hotmail.com','diego','123',default);
 select *from tb_cliente;
+select * from tb_cliente where usuario='diego';
 insert into tb_empleado values ('E0001','Pepe', 'Aguilar','pepe','123','932468110', 'mz107lt6','diego@hotmail.com',default);
-select *from tb_empleado
+select *from tb_empleado;
+select * from tb_empleado where usuario='pepe';

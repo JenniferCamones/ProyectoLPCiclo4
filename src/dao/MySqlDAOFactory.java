@@ -21,7 +21,7 @@ public class MySqlDAOFactory extends DAOFactory {
 	}
 	public EmpleadoDAO getEmpleado() {
 		// TODO Auto-generated method stub
-		return null;
+		return new MySqlEmpleadosDAO();
 	}
 	
 	

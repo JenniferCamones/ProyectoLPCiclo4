@@ -1,3 +1,4 @@
+<jsp:include page="validar.jsp"></jsp:include>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -97,7 +98,7 @@
 
             <div class="header__usuario">
             
-              <a href="login.jsp" class="boton-salir"> <i class="fa-sharp fa-solid fa-right-from-bracket"></i> Salir</a>
+              <a href="ServletCliente?tipo=cerrarSesion" class="boton-salir"> <i class="fa-sharp fa-solid fa-right-from-bracket"></i> Salir</a>
 
 
             </div>
