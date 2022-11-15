@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import beans.ClienteDTO;
+import beans.EmpleadosDTO;
 import beans.ProductoDTO;
 import dao.DAOFactory;
 import interfaces.ClienteDAO;
@@ -27,9 +28,13 @@ public class ClienteService {
 	public ClienteDTO iniciaSesion(String login) {
 		return objCli.iniciarSesion(login);
 	}
+	public int eliminaCliente(String idCliente) {
+		return objCli.eliminarCliente(idCliente);
+	}
 	
 	
-	
-	
+	public List<ClienteDTO> listaCliente() {
+		return objCli.listarCliente();
+	}
 	
 }

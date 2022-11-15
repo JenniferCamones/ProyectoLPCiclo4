@@ -2,6 +2,9 @@ package service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletResponse;
+
 import beans.ProductoDTO;
 import dao.DAOFactory;
 import interfaces.ProductoDAO;
@@ -12,24 +15,34 @@ public class ProductoService {
 	DAOFactory fabrica = DAOFactory.getDAOFactory(Constantes.ORIGEN_DE_DATOS_MYSQL);
 	ProductoDAO objPro = fabrica.getProducto();
 	
-	public List<ProductoDTO> listarProducto() {
-		return objPro.listarProducto();
+	
+	public List<ProductoDTO> listaProducto() {
+		return objPro.listarProductos();
 	}
 	
-	public ProductoDTO buscarProducto(int cod) {
-		return objPro.buscarProducto(cod);
+	public int agregaProducto(ProductoDTO prod) {
+		return objPro.agregarProducto(prod);
 	}
 	
-	public int registrarProducto(ProductoDTO obj) {
-		return objPro.registrarProducto(obj);
+	public int actualizaProducto(ProductoDTO prod) {
+		return objPro.actualizarProducto(prod);
+	}
+	public String generaCodigo() {
+		return objPro.generarCodigo();
 	}
 	
-	public int actualizarProducto(ProductoDTO obj) {
-		return objPro.actualizarProducto(obj);
-	}
+
 	
-	public int eliminarProducto(int cod) {
+	public int eliminaProducto(String cod) {
 		return objPro.eliminarProducto(cod);
 	}
+	
+	public ProductoDTO buscaProducto(String cod) {
+		return objPro.buscarProducto(cod);
+	}
+	public void listaImg(String cod,HttpServletResponse response) {
+			objPro.listarImg(cod,response);
+	}
+	
 	
 }

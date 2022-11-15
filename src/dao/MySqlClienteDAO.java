@@ -16,124 +16,39 @@ import java.util.ArrayList;
 
 
 public class MySqlClienteDAO implements ClienteDAO{
-	/*
-	 public List<ClienteDTO> listarCliente() {
-		List<ClienteDTO> dt= new ArrayList<ClienteDTO>();
-		ClienteDTO obj =null;
-		Connection cn= null;
-		PreparedStatement pstm= null;
-		ResultSet rs= null;
-		
-		try {
-			cn = MySqlDBConexion.getConexion();
-			String sql = "select idCliente,Nombre,Direccion,dni,telefono from Cliente ;";
-		pstm = cn.prepareStatement(sql);	
-			rs= pstm.executeQuery();
-			while (rs.next()) {
-				obj = new ClienteDTO();
-				obj.setIdCliente(rs.getInt(0));
-				obj.setNombre(rs.getString(1));
-				obj.setDireccion(rs.getString(2));
-				obj.setDni(rs.getString(3));
-				obj.setTelefono(rs.getString(4));
-				dt.add(obj);
-			}
-		}catch (Exception e) {
-			// TODO: handle exception
-		}							
-		return dt;
-	}
-	 public boolean insertarCliente(ClienteDTO c) {
-			Connection cn = null;
-			PreparedStatement pstm = null;
-			Boolean rs = false;
-					
-			try {
-				cn = MySqlDBConexion.getConexion();
-				String sql = "insert into cliente(nombre,direccion,dni,telefono) value(?,?,?,?);";  					
-				
-				pstm = cn.prepareStatement(sql);
-				
-				pstm.setString(0, c.getNombre());
-				pstm.setString(1, c.getDireccion());
-				pstm.setString(2, c.getDni());
-				pstm.setString(3, c.getTelefono());												
-	          rs = pstm.execute();
-													
-			}
-			catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			return rs;		
-		}
-		*/
-	 public int actualizarCliente(ClienteDTO c) {
-			Connection cn = null;
-			PreparedStatement pstm = null;
-			int rs = -1;
-					
-			try {
-				cn = MySqlDBConexion.getConexion();
-				String sql ="UPDATE cliente SET nombre=?,direccion=?,dni=?,telefono=? where idCliente =?; ";  					
-				pstm = cn.prepareStatement(sql);
-				pstm.setString(0, c.getNombre());
-				pstm.setString(1, c.getDireccion());
-			
-				pstm.setString(3, c.getTelefono());
-				
-	            pstm.executeUpdate();
-					rs=1;								
-			}
-			catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			return rs;		
-		
-		}
-	 /*
-	 public boolean eliminarCliente(int idCliente) {
-			Connection cn = null;
-			PreparedStatement pstm = null;
-			Boolean rs = false;
-			
-			try {
-				cn = MySqlDBConexion.getConexion();
-				String sql ="update cliente set estado=0 where idCliente = ? ";
-				pstm = cn.prepareStatement(sql);
-				pstm.setInt(0,idCliente);
-				pstm.executeUpdate();
-				rs=true;
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			return rs;
-		}
-		*/
-	 /*
-	 public boolean activarCliente(int idCliente) {
-			Connection cn = null;
-			PreparedStatement pstm = null;
-			Boolean rs = false;
-			
-			try {
-				cn = MySqlDBConexion.getConexion();
-				String sql ="update cliente set estado=1 where idCliente = ? ";
-				pstm = cn.prepareStatement(sql);
-				pstm.setInt(0,idCliente);
-				pstm.executeUpdate();
-				rs=true;
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			return rs;
-		}
-		*/
-
+	
 	@Override
 	public List<ClienteDTO> listarCliente() {
-		// TODO Auto-generated method stub
-		return null;
+		List<ClienteDTO> data = new ArrayList<ClienteDTO>();
+		ClienteDTO emp = null;
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+				
+		try {
+			cn = MySqlDBConexion.getConexion();
+			String sql = "select codCliente,nombre,apellido,telefono,direccion,correo from tb_cliente";
+			pstm = cn.prepareStatement(sql);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				emp = new ClienteDTO();
+				emp.setCodcli(rs.getString(1));
+				emp.setNombre(rs.getString(2));
+				emp.setApellido(rs.getString(3));
+				emp.setTelefono(rs.getString(4));
+				emp.setDireccion(rs.getString(5));
+				emp.setCorreo(rs.getString(6));
+				data.add(emp);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return data;
 	}
+	 
+
+
 
 	@Override
 	public int agregarCliente(ClienteDTO c) {
@@ -170,9 +85,22 @@ public class MySqlClienteDAO implements ClienteDAO{
 	}
 
 	@Override
-	public int eliminarCliente(int idCliente) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int eliminarCliente(String idCliente) {
+		int estado = -1;
+		Connection cn = null;
+		PreparedStatement pstm = null;
+				
+		try {
+			cn = MySqlDBConexion.getConexion();
+			String sql = "delete from tb_cliente where codCliente=?";
+			pstm = cn.prepareStatement(sql);
+			pstm.setString(1, idCliente);
+			estado = pstm.executeUpdate();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return estado;
 	}
 
 	@Override
@@ -263,35 +191,15 @@ String codigo ="C0001";
 		
 		return cli;
 	}
-	 
-	 /*
+
+
+
 	@Override
-	public List<ClienteDTO> listarCliente() {
+	public int actualizarCliente(ClienteDTO c) {
 		// TODO Auto-generated method stub
-		return null;
-		
-		int estado = -1;
-		Connection cn = null;
-		PreparedStatement pstm = null;
-				
-		try {
-			cn = MySqlDBConexion.getConexion();
-			String sql = "insert into tb_producto values(null,?,?,?,?)";
-			pstm = cn.prepareStatement(sql);
-			pstm.setString(1, obj.getDescripcion());
-			pstm.setDouble(2, obj.getPrecio());
-			pstm.setInt(3, obj.getStock());
-			pstm.setInt(4, obj.getCodMarca());
-			estado = pstm.executeUpdate();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return estado;
-		
+		return 0;
 	}
-	
-	 */
 	 
+	
 	 
 }

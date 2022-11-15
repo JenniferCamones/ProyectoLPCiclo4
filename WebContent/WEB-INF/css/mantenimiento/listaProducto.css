@@ -1,0 +1,70 @@
+
+
+
+.table_responsive{
+
+max-width: 900px;
+border: 1px solid red;
+background-color: antiquewhite;
+padding: 1.5rem;
+overflow: auto;
+margin: auto;
+border-radius: 4px;
+margin-bottom: 5rem;
+
+}
+
+
+table{
+    width: 100%;
+    font-size: 1.3rem;
+    color: rgb(94, 93, 93);
+    white-space: nowrap;
+    border-collapse: collapse;
+    text-align: center;
+}
+table>thead{
+    background-color: teal;
+    color: white;
+}
+
+table>thead th{
+    padding: 1.5rem;
+}
+
+table th,
+table td{
+    border: 1px solid black;
+    padding: 1rem 1.5rem;
+}
+
+table>tbody>tr>td>img{
+    display: inline-block;
+    width: 60px;
+    height: 60px ;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 2px 6px black;
+
+}
+
+.action_btn{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.action_btn>a{
+    text-decoration: none;
+    color: teal;
+    font-size: 1.6rem;
+    transition: .3s ease-in-out;
+}
+
+.action_btn>a:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+

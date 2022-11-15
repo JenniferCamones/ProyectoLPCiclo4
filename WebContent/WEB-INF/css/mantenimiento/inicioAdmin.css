@@ -1,0 +1,22 @@
+.mantenimiento{
+     width: 200px;
+  height: 50px;
+    
+  outline: none;
+    padding: 10px 20px;
+  
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: #e99401;
+    color: #ffffff;
+    font-size: 18px;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 1);
+    
+}
+
+.mantenimiento option{
+    background-color: white;
+    color: black;
+          text-shadow: none;
+        
+}

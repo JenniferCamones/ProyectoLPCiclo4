@@ -1,6 +1,8 @@
 package MisServlets;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import beans.ClienteDTO;
 import beans.EmpleadosDTO;
+import beans.ProductoDTO;
 import service.EmpleadoService;
 
 /**
@@ -32,7 +35,7 @@ public class ServletEmpleado extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -51,9 +54,65 @@ public class ServletEmpleado extends HttpServlet {
 			CerrarSesion(request,response);
 		else if (xtipo.equals("agregar")) {
 			agregar(request, response);
+		}if (xtipo.equals("listar")) {
+			listar(request, response);
+		}	else if (xtipo.equals("actualizar")) {
+			actualizar(request, response);
+		}
+		else if (xtipo.equals("eliminar")) {
+			eliminar(request, response);
+		}
+		else if (xtipo.equals("buscar")) {
+			buscar(request, response);
 		}
 	
 	}
+
+	private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		servicio.eliminaEmpleado(cod);
+		listar(request, response);
+	}
+	
+	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod=request.getParameter("cod");
+		
+		request.setAttribute("Empleado", servicio.buscaEmpleado(cod));
+		request.getRequestDispatcher("empleados.jsp").forward(request, response);
+	}
+	private void actualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod,nombre,apellidos,usuario,clave,telefono,direccion,correo;
+		int tipo=3;
+		
+		nombre=request.getParameter("txt_nombre2");
+		
+		apellidos=request.getParameter("txt_apellido2");
+		
+		usuario=request.getParameter("txt_usuario2");
+		
+		clave=request.getParameter("txt_clave2");
+		telefono=request.getParameter("txt_telefono2");
+		direccion=request.getParameter("txt_direccion2");
+		correo=request.getParameter("txt_correo2");
+		cod=request.getParameter("txt_cod2");
+		EmpleadosDTO emp=new EmpleadosDTO();
+		
+		
+		emp.setNombre(nombre);
+		emp.setApellido(apellidos);
+		emp.setUsuario(usuario);
+		emp.setClave(clave);
+		emp.setTelefono(telefono);
+		emp.setDireccion(direccion);
+		emp.setCorreo(correo);
+		emp.setCodemp(cod);
+		emp.setIdTipo(tipo);
+		
+	
+		servicio.actualizaEmpleado(emp);
+		listar(request, response);
+	}
+
 	private void CerrarSesion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession sesion=request.getSession();
@@ -87,19 +146,22 @@ public class ServletEmpleado extends HttpServlet {
 		}
 	}
 
+	
+	
 	private void agregar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String codemp, nombre,apellido,telefono,direccion,correo,usuario,clave;
 		int idTipo;
 		codemp=servicio.generaCodigo();
 		nombre=request.getParameter("txt_nombre");
 		apellido=request.getParameter("txt_apellido");
+			usuario=request.getParameter("txt_usuario");
+		clave=request.getParameter("txt_clave");
 		telefono=request.getParameter("txt_telefono");
 		direccion=request.getParameter("txt_direccion");
 		correo=request.getParameter("txt_correo");
-		usuario=request.getParameter("txt_usuario");
-		clave=request.getParameter("txt_clave");
+	
 		
-		idTipo=2;
+		idTipo=3;
 	
 		
 		
@@ -123,8 +185,16 @@ public class ServletEmpleado extends HttpServlet {
 		emp.setCorreo(correo);
 	
 		servicio.agregaEmpleado(emp);
-		
+		listar(request, response);
 		
 		
 	}
+	
+	private void listar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.setAttribute("data", servicio.listaEmpleado());
+		((HttpServletRequest) request).getRequestDispatcher("listarEmpleados.jsp").forward(request, response); 
+		
+	}
+	
 }

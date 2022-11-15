@@ -2,7 +2,9 @@ package dao;
 
 import interfaces.ClienteDAO;
 import interfaces.EmpleadoDAO;
+import interfaces.LocalDAO;
 import interfaces.ProductoDAO;
+import interfaces.ProveedorDAO;
 
 public abstract class DAOFactory {
 
@@ -18,8 +20,11 @@ public abstract class DAOFactory {
 	public abstract ClienteDAO getCliente();
 	public abstract ProductoDAO getProducto();
 	public abstract EmpleadoDAO getEmpleado();
+	public abstract ProveedorDAO getProveedor();
+	public abstract LocalDAO getLocal();
 	
-    public abstract MySqlUsuariosDAO getUsuarios();
+	
+
 	
 	public static DAOFactory getDAOFactory(int whichFactory) {
 		switch(whichFactory) {

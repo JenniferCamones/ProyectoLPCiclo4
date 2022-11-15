@@ -25,7 +25,7 @@
 
                 <label for="usuario">Usuario:</label>
                 <input type="text" name="txt_login" id="usuario" placeholder="Ingresa  Usuario" autocomplete="off">
-
+	
             </div>
 
                 <div class="campo">

@@ -52,10 +52,24 @@ public class ServletCliente extends HttpServlet {
 		else if (xtipo.equals("agregar")) {
 			agregar(request, response);
 		}
-	
+		else if (xtipo.equals("eliminar")) {
+			eliminar(request, response);
+		}
+		if (xtipo.equals("listar")) {
+			listar(request, response);
+		}
 	}
-
-
+	private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String cod = request.getParameter("cod");
+		servicio.eliminaCliente(cod);
+		listar(request, response);
+	}
+	private void listar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.setAttribute("data", servicio.listaCliente());
+		((HttpServletRequest) request).getRequestDispatcher("listarClientes.jsp").forward(request, response); 
+		
+	}
 
 
 	private void CerrarSesion(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {

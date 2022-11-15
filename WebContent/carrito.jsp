@@ -109,9 +109,9 @@
         <nav class="navegacion">
           <a class="navegacion__enlace" href="inicioUsuario.jsp">Menu</a>
         
-          <a class="navegacion__enlace" href="./paginas/locales.jsp">Locales</a>
-          <a class="navegacion__enlace" href="./paginas/nosotros.jsp">Nosotros</a>
-  <a class="navegacion__enlace" href="./paginas/contactenos.jsp">Contactenos</a>
+          <a class="navegacion__enlace" href="ServletLocal?tipo=listarLocales">Locales</a>
+          <a class="navegacion__enlace" href="nosotros.jsp">Nosotros</a>
+  <a class="navegacion__enlace" href="	contactenos.jsp">Contactenos</a>
           <a class="navegacion__enlace--carrito" href="carrito.jsp"
             ><p>Carrito</p>
             <img class="carrito__img" src="img/carrito.png" alt=""

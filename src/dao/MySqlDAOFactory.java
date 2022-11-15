@@ -1,8 +1,10 @@
 package dao;
 
 import interfaces.ProductoDAO;
+import interfaces.ProveedorDAO;
 import interfaces.ClienteDAO;
 import interfaces.EmpleadoDAO;
+import interfaces.LocalDAO;
 
 public class MySqlDAOFactory extends DAOFactory {
 	
@@ -25,13 +27,20 @@ public class MySqlDAOFactory extends DAOFactory {
 	}
 	
 	
-
-	//PARA USUARIOS
-	@Override
-	public MySqlUsuariosDAO getUsuarios() {
-		
-		return new MySqlUsuariosDAO();
+	public LocalDAO getLocal() {
+		// TODO Auto-generated method stub
+		return new MySqlLocalDAO();
 	}
+	
+
+
+	@Override
+	public ProveedorDAO getProveedor() {
+		// TODO Auto-generated method stub
+		return new MySqlProveedorDAO();
+	}
+
+
 
 	
 	

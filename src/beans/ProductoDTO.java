@@ -1,95 +1,98 @@
 package beans;
 
+import java.io.InputStream;
+
 public class ProductoDTO {
-	private int idProducto;
-	private String nombre;
-	private int stockActual;
-	private double precioActual;
-	private String fechaRegistro;
-    private int empleadoRegistro;
-	private String fechaModifica;
-	private int empleadoModifica;
-	private int idCategoriaPro;
-	private String nombre_cate;
 	
-	public int getIdProducto() {
-		return idProducto;
-	}
+	private String codProducto;
+	private InputStream imagen;
+	private String nombre;
+	private int idCategoriaProducto;
+	private String descripcion;
+	private int stock;
+	private double precio;
+	private String fechaRegistro;
+	
+	private String categoria;
+	
+	
+	
+	
 
-	public void setIdProducto(int idProducto) {
-		this.idProducto = idProducto;
+	public ProductoDTO() {
+		super();
 	}
-
+	public ProductoDTO(String categoria,String codProducto, InputStream imagen, String nombre, int idCategoriaProducto, String descripcion,
+			int stock, double precio, String fechaRegistro) {
+		super();
+		this.codProducto = codProducto;
+		this.imagen = imagen;
+		this.nombre = nombre;
+		this.idCategoriaProducto = idCategoriaProducto;
+		this.descripcion = descripcion;
+		this.stock = stock;
+		this.precio = precio;
+		this.fechaRegistro = fechaRegistro;
+		this.categoria = categoria;
+	}
+	public String getCodProducto() {
+		return codProducto;
+	}
+	public void setCodProducto(String codProducto) {
+		this.codProducto = codProducto;
+	}
+	public InputStream getImagen() {
+		return imagen;
+	}
+	public void setImagen(InputStream inputStream) {
+		this.imagen = inputStream;
+	}
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public int getStockActual() {
-		return stockActual;
+	public int getIdCategoriaProducto() {
+		return idCategoriaProducto;
 	}
-
-	public void setStockActual(int stockActual) {
-		this.stockActual = stockActual;
+	public void setIdCategoriaProducto(int idCategoriaProducto) {
+		this.idCategoriaProducto = idCategoriaProducto;
 	}
-
-	public double getPrecioActual() {
-		return precioActual;
+	public String getDescripcion() {
+		return descripcion;
 	}
-
-	public void setPrecioActual(double precioActual) {
-		this.precioActual = precioActual;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
-
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
+	public double getPrecio() {
+		return precio;
+	}
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
 	public String getFechaRegistro() {
 		return fechaRegistro;
 	}
-
 	public void setFechaRegistro(String fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
-
-	public int getEmpleadoRegistro() {
-		return empleadoRegistro;
+	public String getCategoria() {
+		return categoria;
 	}
-
-	public void setEmpleadoRegistro(int empleadoRegistro) {
-		this.empleadoRegistro = empleadoRegistro;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
-
-	public String getFechaModifica() {
-		return fechaModifica;
-	}
-
-	public void setFechaModifica(String fechaModifica) {
-		this.fechaModifica = fechaModifica;
-	}
-
-	public int getEmpleadoModifica() {
-		return empleadoModifica;
-	}
-
-	public void setEmpleadoModifica(int empleadoModifica) {
-		this.empleadoModifica = empleadoModifica;
-	}
-
-	public int getIdCategoriaPro() {
-		return idCategoriaPro;
-	}
-
-	public void setIdCategoriaPro(int idCategoriaPro) {
-		this.idCategoriaPro = idCategoriaPro;
-	}
-
-	public String getNombre_cate() {
-		return nombre_cate;
-	}
-
-	public void setNombre_cate(String nombre_cate) {
-		this.nombre_cate = nombre_cate;
-	}
-
+	
+	
+	
+	
+	
+	
 }

@@ -2,13 +2,15 @@ create database VentasDelibery;
 drop database VentasDelibery;
 use VentasDelibery;
 
+/**TABLAS*/
+
 create table tb_tipo(
 id_tipo  int not null primary key,
 nom_tipo varchar(20)
 );
 
 create table tb_cliente(
-codCliente char (5) not null ,
+codCliente char (5) not null primary key,
 nombre varchar (30) not null,
 apellido varchar (30) not null,
 telefono varchar(11) null,
@@ -21,7 +23,7 @@ foreign key (id_tipo) references tb_tipo(id_tipo)
 );
 
 create table tb_empleado(
-codEmpleado char (5) not null ,
+codEmpleado char (5) not null primary key,
 nombre varchar(30)null,
 apellidos varchar(30)null,
 usuario varchar(50) not null unique,
@@ -35,6 +37,69 @@ foreign key (id_tipo) references tb_tipo(id_tipo)
 );
 
 
+
+
+create table tb_categoriaProducto(
+idCategoriaProducto		int not null primary key,
+nom_cat varchar(45)
+);
+
+
+create table tb_producto(
+codProducto char (5) primary key ,
+imagen longblob not null,
+nombre varchar(200) not null,
+idCategoriaProducto int not null,
+descripcion varchar(200),
+stock int not null	,
+precio decimal not null,
+fechaRegistro datetime,
+constraint foreign key(idCategoriaProducto) references tb_categoriaProducto(idCategoriaProducto)
+);
+
+
+
+create table tb_local(
+codLocal char (5) not null primary key,
+departamento varchar(30)null,
+distrito varchar(30)null,
+direccion varchar(50) not null ,
+telefono varchar(10) null
+);
+
+
+
+create table tb_proveedor(
+codProveedor char (6) not null primary key,
+nombre varchar(30)null,
+direccion varchar(30)null,
+correo varchar(50) not null 
+
+);
+
+
+/**SENTENCIAS*/
+insert into tb_local values ('L0001','asd','asd','asd','asd');
+
+drop table tb_producto;
+select p.codProducto,p.imagen,p.nombre,cp.nom_cat,p.descripcion,p.stock,p.precio,p.fechaRegistro from tb_producto p inner join tb_categoriaProducto cp on p.idCategoriaProducto=cp.idCategoriaProducto;
+select * from tb_producto where codProducto='P0002';
+drop table tb_local;
+
+insert into tb_categoriaProducto values(1,'Hamburguesas');
+insert into tb_categoriaProducto values(2,'Pizzas');
+insert into tb_categoriaProducto values(3,'Pasteles');
+
+select * from tb_categoriaProducto;
+
+
+select codLocal,departamento,distrito,direccion,telefono from tb_local;
+
+select codProveedor,nombre,direccion,correo from tb_proveedor;
+insert into tb_proveedor values ('PR0001','NOSE','NOSE','NOSE@HOTMAIL.COM');
+update tb_proveedor set nombre='SISE', direccion='SISE',  correo='SISE'  where codProveedor='PR0001';
+select substring(max(codProveedor),3) from tb_proveedor;
+
 select substring(max(codCliente),2) from tb_cliente;
 select substring(max(codEmpleado),2) from tb_empleado;
 -- TIPOS USUARIOS
@@ -46,8 +111,17 @@ select *from tb_tipo;
 -- USUARIOS
 	
 insert into tb_cliente values ('C0001','Diego', 'Alonso','965135227', 'mz107lt6','diego@hotmail.com','diego','123',default);
+
 select *from tb_cliente;
 select * from tb_cliente where usuario='diego';
+select codCliente,nombre,apellido,telefono,direccion,correo from tb_cliente;
+delete from tb_cliente where codCliente='C0001';
+
+
 insert into tb_empleado values ('E0001','Pepe', 'Aguilar','pepe','123','932468110', 'mz107lt6','diego@hotmail.com',default);
 select *from tb_empleado;
 select * from tb_empleado where usuario='pepe';
+delete from tb_empleado where codEmpleado='E0001';
+update tb_empleado set nombre='Milhose', apellidos='Nose',  usuario='milhouse', contraseña='123', telefono='987654321',direccion='Springfield',correo='milhouse@hotmail.com' where codEmpleado='E0001';
+
+select codEmpleado,nombre,apellidos,telefono,direccion,correo from tb_empleado;

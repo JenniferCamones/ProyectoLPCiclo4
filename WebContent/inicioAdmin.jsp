@@ -27,7 +27,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+	
         <style>
         .boton-salir{
           text-decoration: none;
@@ -112,15 +112,15 @@
         <nav class="navegacion">
           <select class="mantenimiento" name="" id="" onchange="location=this.value;" >
             <option selected="true"  value="" disabled="disabled" >Mantenimiento</option>
-          <option value="./mantenimientos/empleados.jsp" >Empleados </option>
-                <option  value="./mantenimientos/productos.jsp"  >Productos</option>
-                  <option  value="./mantenimientos/locales.jsp" >Locales</option>
-                    <option  value="./mantenimientos/proveedores.jsp"  >Proveedores</option>
-
+          <option value="empleados.jsp" >Empleados </option>
+                <option  value="productos.jsp"  >Productos</option>
+                  <option  value="locales.jsp" >Locales</option>
+                    <option  value="proveedores.jsp"  >Proveedores</option>
+	
           </select>
-          <a class="navegacion__enlace" href="consultas/consultar.jsp">Consultas</a>
-          <a class="navegacion__enlace" href="reportes/reportes.jsp">Reportes</a>
-          <a class="navegacion__enlace" href="ventas/realizarVenta.jsp">Ventas</a>
+          <a class="navegacion__enlace" href="consultar.jsp">Consultas</a>
+          <a class="navegacion__enlace" href="reportes.jsp">Reportes</a>
+          <a class="navegacion__enlace" href="realizarVenta.jsp">Ventas</a>
          
 
       
