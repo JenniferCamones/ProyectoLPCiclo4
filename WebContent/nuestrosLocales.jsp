@@ -185,14 +185,11 @@
             </nav>
 
             <div class="footer__redes">
-
-             <a href=""><img src="img/facebook.png" alt=""></a>   
-           <a href=""><img src="img/youtube.png" alt=""></a>     
-            <a href=""><img src="img/twitter.png" alt=""></a>    
-               <a href=""><img src="img/instagram.png" alt=""></a> 
-
-
-            </div>
+            <a href="https://www.facebook.com/DominosPeru/" target="_blank"><img src="img/facebook.png" alt="" /></a>
+            <a href="https://www.youtube.com/watch?v=FD7muZsSd28" target="_blank"><img src="img/youtube.png" alt="" /></a>
+            <a href="https://twitter.com/dominos_peru" target="_blank"><img src="img/twitter.png" alt="" /></a>
+            <a href="https://www.instagram.com/dominosperu/" target="_blank"><img src="img/instagram.png" alt="" /></a>
+          </div>
 
 
             </div>
