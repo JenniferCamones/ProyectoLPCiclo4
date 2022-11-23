@@ -74,9 +74,26 @@ public class ServletProducto extends HttpServlet {
 		}else if (xtipo.equals("listarImg")) {
 			listarImg(request, response);
 		}
+		else if (xtipo.equals("reporte")) {
+			listarReporteVentas(request, response);
+		}
+		
+	}
+	private void listarReporteVentas(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		// TODO Auto-genrerated method stub
+		Date fechaInicio=new Date("2022/01/01");
+		Date fechaFin=new Date(new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
+		request.setAttribute("data", servicio.listarVentasGeneral(fechaInicio,fechaFin));
+		((HttpServletRequest) request).getRequestDispatcher("reporteVentas.jsp").forward(request, response); 
 		
 	}
 	
+	private void listarProductos(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		// TODO Auto-genrerated method stub
+		request.setAttribute("data", servicio.listaProducto());
+		((HttpServletRequest) request).getRequestDispatcher("inicioUsuario.jsp").forward(request, response); 
+		
+	}
 	private String obtenerFecha() {
 		// Obtener la fecha del sistema
 		return new SimpleDateFormat("yyyy/MM/dd").format(new Date());
@@ -195,12 +212,7 @@ public class ServletProducto extends HttpServlet {
 		
 	}
 	
-	private void listarProductos(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setAttribute("data", servicio.listaProducto());
-		((HttpServletRequest) request).getRequestDispatcher("inicioUsuario.jsp").forward(request, response); 
-		
-	}
+	
 	
 
 

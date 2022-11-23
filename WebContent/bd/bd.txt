@@ -36,9 +36,6 @@ foreign key (id_tipo) references tb_tipo(id_tipo)
 
 );
 
-
-
-
 create table tb_categoriaProducto(
 idCategoriaProducto		int not null primary key,
 nom_cat varchar(45)
@@ -77,6 +74,29 @@ correo varchar(50) not null
 
 );
 
+create table tb_principal_boleta(
+numeroBoleta    char(5) not null primary key ,
+fechaBoleta    date,
+codCliente  char(5) not null,
+codEmpleado char(5) not null,
+totalBoleta decimal(10,2)
+);
+
+select * from tb_principal_boleta;
+INSERT INTO tb_principal_boleta VALUES ('B0001',curdate(),'C0001','E001',12.80);
+
+create table tb_detalle_boleta(
+numeroBoleta     char(5) not null,
+codProducto      char(5) not null,
+cantidad         int,
+precioUnidad     decimal(8,2),
+importeTotal	 decimal(9,2),
+primary key (numeroBoleta),
+foreign key (numeroBoleta) references tb_principal_boleta(numeroBoleta)
+); 
+
+INSERT INTO tb_detalle_boleta VALUES ('B0001','P0001',3,300,900);
+select * from tb_detalle_boleta;
 
 /**SENTENCIAS*/
 insert into tb_local values ('L0001','asd','asd','asd','asd');
@@ -125,3 +145,22 @@ delete from tb_empleado where codEmpleado='E0001';
 update tb_empleado set nombre='Milhose', apellidos='Nose',  usuario='milhouse', contraseña='123', telefono='987654321',direccion='Springfield',correo='milhouse@hotmail.com' where codEmpleado='E0001';
 
 select codEmpleado,nombre,apellidos,telefono,direccion,correo from tb_empleado;
+
+
+
+DELIMITER $$
+CREATE PROCEDURE sp_reporteVentasGeneral (IN fechaInicio date, IN fechaFin date)
+BEGIN
+	select b.numeroBoleta,b.fechaBoleta,
+	b.codCliente,
+	CONCAT(cli.nombre,' ',cli.apellido) as NombreCompletoCli,
+	emp.codEmpleado,
+	CONCAT(emp.nombre,' ',emp.apellidos) as NombreCompletoEmp,
+	b.totalBoleta  
+	from tb_principal_boleta b inner join tb_cliente cli on b.codCliente = cli.codCliente
+							   inner join tb_empleado emp on b.codEmpleado = emp.codEmpleado
+	where b.fechaBoleta between fechaInicio and fechaFin;
+END$$  
+
+     
+  call sp_reporteVentasGeneral('20220101','20221122')

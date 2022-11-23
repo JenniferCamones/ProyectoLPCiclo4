@@ -148,14 +148,15 @@
         <form action="reportes.jsp" class="buscador" >
 
             <div class="opciones">
-                <select name="lista" class="categorias" id="categoria" >
+            
+              <a href="ServletProducto?tipo=reporte">Ventas</a>
+              <a href="ServletEmpleado?tipo=listar">Empleados</a>
+               <!--  <select name="lista" class="categorias" id="categoria" >
                         <option value="empleados">Empleados</option>
                         <option value="ventas">Ventas</option>
                       
-                </select>
+                </select> -->
             </div>
-
-            <button class="procesar">Procesar</button>
    
         </form>
      </div>

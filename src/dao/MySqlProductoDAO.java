@@ -5,9 +5,11 @@ import java.io.BufferedOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +18,40 @@ import javax.servlet.http.HttpServletResponse;
 import com.mysql.cj.jdbc.Blob;
 
 import beans.ProductoDTO;
+import beans.ReporteVentas;
 import interfaces.ProductoDAO;
 import utils.MySqlDBConexion;
 
 public class MySqlProductoDAO implements ProductoDAO {
 
 	
-	
-	
+	public List<ReporteVentas> listarVentasGeneral(Date fechaInicio,Date fechaFin) {
+		List<ReporteVentas> data = new ArrayList<ReporteVentas>();
+		ReporteVentas p = null;
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+				
+		try {
+			cn = MySqlDBConexion.getConexion();
+			String sql = "CALL sp_reporteVentasGeneral(?,?)";
+			pstm = cn.prepareCall(sql);
+			pstm.setString(1, new SimpleDateFormat("yyyy/MM/dd").format(fechaInicio));
+			pstm.setString(2,new SimpleDateFormat("yyyy/MM/dd").format(fechaFin));
+			rs = pstm.executeQuery();
+			
+			while (rs.next()) {
+				p = new ReporteVentas
+						(rs.getString(1),rs.getDate(2),rs.getString(3),
+						 rs.getString(4),rs.getString(5),rs.getString(6),rs.getDouble(7));
+				data.add(p);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
 	@Override
 	public List<ProductoDTO> listarProductos() {
 		List<ProductoDTO> data = new ArrayList<ProductoDTO>();
