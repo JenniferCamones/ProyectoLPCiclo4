@@ -3,6 +3,7 @@ package MisServlets;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -56,6 +57,10 @@ public class ServletProducto extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String xtipo = request.getParameter("tipo");
 	
+		if(xtipo==null) {
+			xtipo="reporte";
+		}
+		
 		 if (xtipo.equals("agregar")) {
 			agregar(request, response);
 		}if (xtipo.equals("listar")) {
@@ -75,15 +80,45 @@ public class ServletProducto extends HttpServlet {
 			listarImg(request, response);
 		}
 		else if (xtipo.equals("reporte")) {
+			System.out.println(request.getParameter("start"));			  
 			listarReporteVentas(request, response);
+		}else if (xtipo.equals("reporteDetalle")) {
+			listarReporteDetalle(request, response);
 		}
 		
 	}
+	private void listarReporteDetalle(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		// TODO Auto-genrerated method stub
+		Date fechaInicio=new Date("2022/01/01");
+		Date fechaFin=new Date(new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
+		
+		request.setAttribute("data", servicio.listarVentasDetalle(fechaInicio,fechaFin));
+		((HttpServletRequest) request).getRequestDispatcher("ReporteDetalle.jsp").forward(request, response); 
+		
+	}
+	
 	private void listarReporteVentas(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		// TODO Auto-genrerated method stub
 		Date fechaInicio=new Date("2022/01/01");
 		Date fechaFin=new Date(new SimpleDateFormat("yyyy/MM/dd").format(new Date()));
-		request.setAttribute("data", servicio.listarVentasGeneral(fechaInicio,fechaFin));
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		
+	if(request.getParameter("start")!=null) {
+			try {
+				
+				fechaInicio=format.parse(request.getParameter("start").replace('-', '/'));
+				fechaFin=format.parse(request.getParameter("endDate").replace('-', '/'));
+				request.setAttribute("data", servicio.listarVentasGeneral(
+						fechaInicio,
+						fechaFin
+						));
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {		
+			request.setAttribute("data", servicio.listarVentasGeneral(fechaInicio,fechaFin));
+		}
 		((HttpServletRequest) request).getRequestDispatcher("reporteVentas.jsp").forward(request, response); 
 		
 	}
@@ -184,27 +219,20 @@ public class ServletProducto extends HttpServlet {
 		listar(request, response);
 		
 	}
-
-	
-	
-	
-	
 	
 	private void eliminar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cod = request.getParameter("cod");
 		servicio.eliminaProducto(cod);
 		listar(request, response);
 	}
-	
-	
+		
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String cod=request.getParameter("cod");
 		
 		request.setAttribute("Producto", servicio.buscaProducto(cod));
 		request.getRequestDispatcher("productos.jsp").forward(request, response);
 	}
-	
-	
+		
 	private void listar(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setAttribute("data", servicio.listaProducto());
@@ -212,10 +240,6 @@ public class ServletProducto extends HttpServlet {
 		
 	}
 	
-	
-	
-
-
 	private void listarImg(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
@@ -226,10 +250,6 @@ public class ServletProducto extends HttpServlet {
 		
 	
 	}
-	
-	
-	
-	
 	
 	
 }

@@ -69,6 +69,24 @@
 .procesar:hover{
           background-color: rgb(0, 0, 0);
         }
+        .opciones{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap:6rem;
+	}
+	
+	.opciones a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+	border-bottom: 5px solid transparent;
+	transition:.3s all ease;
+	}
+	.opciones a:hover{
+	border-bottom: 5px solid orange;
+	
+	}
       </style>
  
 </head>
@@ -147,10 +165,10 @@
     <div class="formulario-busqueda">
         <form action="reportes.jsp" class="buscador" >
 
-            <div class="opciones">
+            <div class="opciones" style="margin-bottom: 2rem;">
             
               <a href="ServletProducto?tipo=reporte">Ventas</a>
-              <a href="ServletEmpleado?tipo=listar">Empleados</a>
+              <a href="ServletProducto?tipo=reporteDetalle">VentasDetalle</a>
                <!--  <select name="lista" class="categorias" id="categoria" >
                         <option value="empleados">Empleados</option>
                         <option value="ventas">Ventas</option>

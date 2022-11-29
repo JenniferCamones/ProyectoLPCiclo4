@@ -18,4 +18,5 @@ public interface ProductoDAO {
 	public ProductoDTO buscarProducto(String cod);
 	public void listarImg(String cod,HttpServletResponse response);
 	public List<ReporteVentas> listarVentasGeneral(Date fechaInicio,Date fechaFin);
+	public List<ReporteVentas> listarVentasDetalle(Date fechaInicio,Date fechaFin);
 }

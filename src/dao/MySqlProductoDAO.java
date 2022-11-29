@@ -52,6 +52,34 @@ public class MySqlProductoDAO implements ProductoDAO {
 		}
 		return data;
 	}
+	public List<ReporteVentas> listarVentasDetalle(Date fechaInicio,Date fechaFin) {
+		List<ReporteVentas> data = new ArrayList<ReporteVentas>();
+		ReporteVentas p = null;
+		Connection cn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+				
+		try {
+			cn = MySqlDBConexion.getConexion();
+			String sql = "CALL sp_reporteVentasDetalle(?,?)";
+			pstm = cn.prepareCall(sql);
+			pstm.setString(1, new SimpleDateFormat("yyyy/MM/dd").format(fechaInicio));
+			pstm.setString(2,new SimpleDateFormat("yyyy/MM/dd").format(fechaFin));
+			rs = pstm.executeQuery();
+			
+			while (rs.next()) {
+				p = new ReporteVentas
+						(rs.getString(1),rs.getDate(2),rs.getString(3),rs.getString(4),rs.getString(5),
+						 rs.getString(6),rs.getDouble(7),rs.getString(8),rs.getInt(9),rs.getDouble(10),
+						 rs.getDouble(11));
+				data.add(p);
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
 	@Override
 	public List<ProductoDTO> listarProductos() {
 		List<ProductoDTO> data = new ArrayList<ProductoDTO>();

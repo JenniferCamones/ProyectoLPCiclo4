@@ -17,6 +17,10 @@ public class ProductoService {
 	DAOFactory fabrica = DAOFactory.getDAOFactory(Constantes.ORIGEN_DE_DATOS_MYSQL);
 	ProductoDAO objPro = fabrica.getProducto();
 	
+	public List<ReporteVentas> listarVentasDetalle(Date fechaInicio,Date fechaFin) {
+		return objPro.listarVentasDetalle(fechaInicio,fechaFin);
+	}
+	
 	public List<ReporteVentas> listarVentasGeneral(Date fechaInicio,Date fechaFin) {
 		return objPro.listarVentasGeneral(fechaInicio,fechaFin);
 	}

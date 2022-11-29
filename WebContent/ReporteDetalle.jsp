@@ -1,19 +1,18 @@
-<!--<jsp:include page="validarEmpleado.jsp"></jsp:include>-->
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="beans.ReporteVentas"%>
 <%@page import="java.util.ArrayList"%>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+<meta charset="ISO-8859-1"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Base</title>
-
-    <link href="<c:url value="/css/normalize.css" />" 
+    
+   <link href="<c:url value="/css/normalize.css" />" 
 rel="stylesheet">
  
    <link href="<c:url value="/css/base.css" />" 
@@ -34,20 +33,14 @@ rel="stylesheet">
         <link href="<c:url value="/./css/carrito.css"/>" 
 rel="stylesheet">
     
-   
-
-	
-	
-	
-    <link
+  <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
       integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-        <style>
+     <style>
         .boton-salir{
           text-decoration: none;
           color: black;
@@ -86,20 +79,19 @@ rel="stylesheet">
             }
 
 
-      </style>
- 
+      </style>     
 </head>
-  <body>
-    <header class="header">
+<body>
+<header class="header">
       <div class="header__container">
         <div class="header__encabezado">
           <div class="encabezado__texto encabezado__texto--1">
-            <h2 class="encabezado__texto1">AtenciÃ³n</h2>
+            <h2 class="encabezado__texto1">Atenci�n</h2>
             <h2 class="encabezado__texto1">en Lima*</h2>
           </div>
 
           <div class="encabezado__texto encabezado__texto--2">
-            <h2 class="encabezado__texto2">Delibery: Hasta las 11pm*</h2>
+            <h2 class="encabezado__texto2">Delivery: Hasta las 11pm*</h2>
             <h2 class="encabezado__texto2">Recojo en tienda: Hasta las 9pm*</h2>
           </div>
         </div>
@@ -122,7 +114,7 @@ rel="stylesheet">
                   src="img/telefono.png"
                   alt=""
                 />
-                <p>Delibery</p>
+                <p>Delivery</p>
               </div>
               <div class="header__telefono--inferior">
                 <p>014191919</p>
@@ -159,46 +151,32 @@ rel="stylesheet">
     <main class="__container">
 
 
-    <h2 class="__heading">Reporte de Ventas General- Boleta de Ventas</h2>
+    <h2 class="__heading">Reporte Detalle de Ventas</h2>
       <div class="formulario-busqueda">
-        <form action="ServletProducto?tipo=reporte" class="buscador" >
+        <form action="consultar.jsp" class="buscador" >
 
-          <div class="opciones">
-                
-				<h4>Filtrar por Fechas:   </h4>
-               
+          <div class="opciones">               
             </div>
-
-            <div class="box">
-  <div class="container-1">
-      <label class="icon"><i class="fa fa-search"></i></label>
-     
-      <input type="date" id="start" name="start"
-       value="2018-07-22"
-       min="2018-01-01" max="2022-12-31">
-       <input type="date" id="endDate" name="endDate"
-       value="2022-11-29"
-       min="2018-01-01" max="2022-12-31">
-       
-            <button class="boton-enviar" type="submit">Buscar</button>
-      
-  				</div>
+ 
 		  </div>   
         </form>
      </div>
 
-                           <div class="table_responsive">
+                           <div class="table_responsive2">
         <table class="tabla">
           <thead>
             <tr>
-             <th>N° Boleta</th>
+             <th>N� Boleta</th>
               <th>Fecha</th>
               <th>Cod cliente</th>
               <th>Cliente</th>
               <th>Cod Empleado</th>
               <th>Empleado</th>
               <th>Importe total</th>
-
+              <th>cod Producto</th>
+              <th>cantidad</th>
+              <th>precio</th>
+              <th>importe total</th>
             </tr>
           </thead>
 
@@ -218,6 +196,10 @@ rel="stylesheet">
 			out.println("<td>" + xEmp.getCodigoEmpleado()+ "</td>");
 			out.println("<td>" + xEmp.getNombreCompletoEmp() + "</td>");
 			out.println("<td>" + xEmp.getTotalBoleta() + "</td>");
+			out.println("<td>" + xEmp.getCodProducto() + "</td>");
+			out.println("<td>" + xEmp.getCantidad() + "</td>");
+			out.println("<td>" + xEmp.getPrecioUnidad() + "</td>");
+			out.println("<td>" + xEmp.getImporteTotal() + "</td>");
 			out.println("</tr>");
 		}
 			}
@@ -226,17 +208,11 @@ rel="stylesheet">
           
 
             %>
-            
-            
+                        
           </tbody>
 
-
-
         </table>
-
     </div>
-      
-       
 
     </main>
 
@@ -270,12 +246,12 @@ rel="stylesheet">
         <div class="footer__copyright">
           <br />
           <hr />
-          <p>Â© 2022 Todos los derechos Reservados.</p>
+          <p>© 2022 Todos los derechos Reservados.</p>
         </div>
       </div>
     </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  </body>
+</body>
 </html>
